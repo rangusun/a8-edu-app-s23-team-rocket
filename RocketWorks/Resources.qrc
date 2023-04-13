@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/FireworkResources">
+        <file>Resources/Firework.png</file>
+    </qresource>
+</RCC>
