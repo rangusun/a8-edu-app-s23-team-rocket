@@ -56,6 +56,8 @@ SOURCES += \
     Box2D/Dynamics/b2WorldCallbacks.cpp \
     Box2D/Rope/b2Rope.cpp \
     FireworkSceneWidget.cpp \
+    TutorialDialog.cpp \
+    TutorialPage.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -108,9 +110,13 @@ HEADERS += \
     Box2D/Dynamics/b2WorldCallbacks.h \
     Box2D/Rope/b2Rope.h \
     FireworkSceneWidget.h \
+    TutorialDialog.h \
+    TutorialPage.h \
     mainwindow.h
 
 FORMS += \
+    TutorialDialog.ui \
+    TutorialPage.ui \
     mainwindow.ui
 
 # Default rules for deployment.

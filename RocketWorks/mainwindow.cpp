@@ -8,8 +8,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->widget->show();
 
-
-
     connect(ui->launchButton,
             &QPushButton::clicked,
             ui->widget,
