@@ -22,9 +22,14 @@ public:
 private:
     Ui::TutorialPage *ui;
 
-    TutorialDialog gunpowderDialog;
+    TutorialDialog starDialog;
+    TutorialDialog blastDialog;
+    TutorialDialog liftDialog;
+    TutorialDialog otherDialog;
 
     map<QString, bool> dialogVisited;
+
+    void CheckIfAllPagesVisited();
 };
 
 #endif // TUTORIALPAGE_H

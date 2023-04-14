@@ -11,8 +11,9 @@ TutorialDialog::TutorialDialog(QString imagePath, QString text, QString title, Q
     ui->setupUi(this);
 
     ui->titleLabel->setText(this->title);
-    ui->imageBox->setPixmap(this->image);
-    ui->textBox->setText(this->text);
+    ui->titleLabel->setFixedHeight(20);
+    ui->imageBox->setPixmap(this->image.scaled(250, 250, Qt::KeepAspectRatio));
+    ui->textBox->setMarkdown(this->text);
 }
 
 TutorialDialog::~TutorialDialog()
