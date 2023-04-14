@@ -2,4 +2,12 @@
     <qresource prefix="/FireworkResources">
         <file>Resources/Firework.png</file>
     </qresource>
+    <qresource prefix="/TutorialResources">
+        <file>Resources/fireworkscircle4.jpg</file>
+        <file>Resources/tempFuse.jpg</file>
+        <file>Resources/tempGunpowder.png</file>
+        <file>Resources/tempMortar.png</file>
+        <file>Resources/tempShell.jpg</file>
+        <file>Resources/tempStar.jpg</file>
+    </qresource>
 </RCC>

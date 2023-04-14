@@ -2,6 +2,10 @@
 #define TUTORIALPAGE_H
 
 #include <QWidget>
+#include <map>
+#include "TutorialDialog.h"
+
+using std::map;
 
 namespace Ui {
 class TutorialPage;
@@ -17,6 +21,10 @@ public:
 
 private:
     Ui::TutorialPage *ui;
+
+    TutorialDialog gunpowderDialog;
+
+    map<QString, bool> dialogVisited;
 };
 
 #endif // TUTORIALPAGE_H
