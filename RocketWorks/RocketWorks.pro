@@ -110,6 +110,7 @@ HEADERS += \
     Box2D/Dynamics/b2WorldCallbacks.h \
     Box2D/Rope/b2Rope.h \
     FireworkSceneWidget.h \
+    TutorialComponents.h \
     TutorialDialog.h \
     TutorialPage.h \
     mainwindow.h

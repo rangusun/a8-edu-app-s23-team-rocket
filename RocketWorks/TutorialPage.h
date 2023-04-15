@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <map>
 #include "TutorialDialog.h"
+#include "TutorialComponents.h"
 
 using std::map;
 
@@ -22,12 +23,9 @@ public:
 private:
     Ui::TutorialPage *ui;
 
-    TutorialDialog starDialog;
-    TutorialDialog blastDialog;
-    TutorialDialog liftDialog;
-    TutorialDialog otherDialog;
+    TutorialDialog componentDialog;
 
-    map<QString, bool> dialogVisited;
+    map<RocketComponent, bool> dialogsVisited;
 
     void CheckIfAllPagesVisited();
 };
