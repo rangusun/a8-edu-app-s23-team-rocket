@@ -9,5 +9,6 @@
         <file>Resources/tempMortar.png</file>
         <file>Resources/tempShell.jpg</file>
         <file>Resources/tempStar.jpg</file>
+        <file>Resources/mainrocketdiagram.png</file>
     </qresource>
 </RCC>
