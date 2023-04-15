@@ -25,10 +25,10 @@ TutorialPage::TutorialPage(QWidget *parent) :
             &QPushButton::clicked,
             this,
             [this]() { componentDialog.showComponentDialog(liftCharge); dialogsVisited[liftCharge] = true; CheckIfAllPagesVisited(); });
-    /*connect(ui->otherButton,
+    connect(ui->otherButton,
             &QPushButton::clicked,
             this,
-            [this]() { componentDialog.showComponentDialog(other); dialogsVisited[other] = true; CheckIfAllPagesVisited(); });*/
+            [this]() { componentDialog.showComponentDialog(other); dialogsVisited[other] = true; CheckIfAllPagesVisited(); });
 }
 
 TutorialPage::~TutorialPage()

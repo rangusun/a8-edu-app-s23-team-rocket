@@ -164,7 +164,7 @@ alternate-background-color: rgb(226, 162, 0);</string>
     </size>
    </property>
   </widget>
-  <widget class="QPushButton" name="blastButton_2">
+  <widget class="QPushButton" name="otherButton">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -200,7 +200,7 @@ alternate-background-color: rgb(209, 61, 61);</string>
   <zorder>starButton</zorder>
   <zorder>blastButton</zorder>
   <zorder>liftButton</zorder>
-  <zorder>blastButton_2</zorder>
+  <zorder>otherButton</zorder>
  </widget>
  <resources>
   <include location="Resources.qrc"/>
