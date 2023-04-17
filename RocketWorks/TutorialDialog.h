@@ -27,6 +27,8 @@ private:
     QString title;
 
     QString getText(RocketComponent component);
+    QString getTitle(RocketComponent component);
+    QPixmap  getImage(RocketComponent component);
 };
 
 #endif // TUTORIALDIALOG_H

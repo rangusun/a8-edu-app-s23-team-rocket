@@ -11,6 +11,8 @@ TutorialDialog::TutorialDialog(QWidget *parent) :
 void TutorialDialog::showComponentDialog(RocketComponent component)
 {
     ui->textBox->setMarkdown(getText(component));
+    ui->titleLabel->setText(getTitle(component));
+    ui->imageBox->setPixmap(getImage(component).scaled(250, 250, Qt::KeepAspectRatio));
     show();
 }
 
@@ -42,6 +44,39 @@ QString TutorialDialog::getText(RocketComponent component)
     }
 
     return "";
+}
+
+QString TutorialDialog::getTitle(RocketComponent component)
+{
+    switch(component)
+    {
+    case star:
+        return "Firework Stars";
+    case liftCharge:
+        return "Lift Charge";
+    case blastCharge:
+        return "Blast Charge";
+    case other:
+        return "Other Components in an Aerial Firework";
+    }
+    return "";
+}
+
+QPixmap TutorialDialog::getImage(RocketComponent component)
+{
+    switch(component)
+    {
+    case star:
+        return QPixmap(":/TutorialResources/Resources/tempStar.jpg");
+    case liftCharge:
+        return QPixmap(":/TutorialResources/Resources/tempGunpowder.png");
+    case blastCharge:
+        return QPixmap(":/TutorialResources/Resources/tempGunpowder.png");
+    case other:
+        return QPixmap(":/TutorialResources/Resources/tempShell.jpg");
+    }
+    QPixmap emptyPixmap;
+    return emptyPixmap;
 }
 
 TutorialDialog::~TutorialDialog()
