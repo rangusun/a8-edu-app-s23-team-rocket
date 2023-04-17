@@ -9,6 +9,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     ui->currentWindowHolder->addWidget(&tutorialPage);
+
+    connect(&tutorialPage,
+            &TutorialPage::changePage,
+            this,
+            &MainWindow::switchToSandboxPage);
 }
 
 MainWindow::~MainWindow()
@@ -16,3 +21,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::switchToSandboxPage()
+{
+    ui->currentWindowHolder->addWidget(&sandboxPage);
+}

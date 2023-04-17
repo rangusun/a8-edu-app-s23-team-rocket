@@ -28,6 +28,13 @@ private:
     map<RocketComponent, bool> dialogsVisited;
 
     void CheckIfAllPagesVisited();
+
+signals:
+    void changePage();
+
+private slots:
+    void switchToSandbox();
+
 };
 
 #endif // TUTORIALPAGE_H

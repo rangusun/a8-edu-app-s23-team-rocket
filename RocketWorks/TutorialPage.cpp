@@ -29,6 +29,11 @@ TutorialPage::TutorialPage(QWidget *parent) :
             &QPushButton::clicked,
             this,
             [this]() { componentDialog.showComponentDialog(other); dialogsVisited[other] = true; CheckIfAllPagesVisited(); });
+
+    connect(ui->nextButton,
+            &QPushButton::clicked,
+            this,
+            &TutorialPage::switchToSandbox);
 }
 
 TutorialPage::~TutorialPage()
@@ -47,4 +52,9 @@ void TutorialPage::CheckIfAllPagesVisited()
     }
 
     ui->nextButton->setEnabled(true);
+}
+
+void TutorialPage::switchToSandbox()
+{
+    emit changePage();
 }
