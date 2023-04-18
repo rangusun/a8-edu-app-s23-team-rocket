@@ -3,12 +3,10 @@
         <file>Resources/Firework.png</file>
     </qresource>
     <qresource prefix="/TutorialResources">
-        <file>Resources/fireworkscircle4.jpg</file>
-        <file>Resources/tempFuse.jpg</file>
-        <file>Resources/tempGunpowder.png</file>
-        <file>Resources/tempMortar.png</file>
-        <file>Resources/tempShell.jpg</file>
-        <file>Resources/tempStar.jpg</file>
         <file>Resources/mainrocketdiagram.png</file>
+        <file>Resources/BurstChargeIcon.png</file>
+        <file>Resources/LiftChargeIcon.png</file>
+        <file>Resources/OtherIcon.png</file>
+        <file>Resources/StarIcon.png</file>
     </qresource>
 </RCC>

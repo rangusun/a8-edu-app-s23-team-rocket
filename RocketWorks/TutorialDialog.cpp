@@ -77,13 +77,13 @@ QPixmap TutorialDialog::getImage(RocketComponent component)
     switch(component)
     {
     case star:
-        return QPixmap(":/TutorialResources/Resources/tempStar.jpg");
+        return QPixmap(":/TutorialResources/Resources/StarIcon.png");
     case liftCharge:
-        return QPixmap(":/TutorialResources/Resources/tempGunpowder.png");
+        return QPixmap(":/TutorialResources/Resources/LiftChargeIcon.png");
     case blastCharge:
-        return QPixmap(":/TutorialResources/Resources/tempGunpowder.png");
+        return QPixmap(":/TutorialResources/Resources/BurstChargeIcon.png");
     case other:
-        return QPixmap(":/TutorialResources/Resources/tempShell.jpg");
+        return QPixmap(":/TutorialResources/Resources/OtherIcon.png");
     }
     QPixmap emptyPixmap;
     return emptyPixmap;
