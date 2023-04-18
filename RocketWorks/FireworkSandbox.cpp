@@ -7,6 +7,10 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    connect(ui->launchButton,
+            &QPushButton::clicked,
+            ui->fireworkScene,
+            &FireworkSceneWidget::launchRocket);
 }
 
 FireworkSandbox::~FireworkSandbox()

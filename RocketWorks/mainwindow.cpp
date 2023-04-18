@@ -8,7 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->currentWindowHolder->addWidget(&tutorialPage);
+    ui->windowStack->addWidget(&tutorialPage);
+    ui->windowStack->addWidget(&sandboxPage);
+    ui->windowStack->setCurrentWidget(&tutorialPage);
+    this->setFixedSize(tutorialPage.width(), tutorialPage.height() + 20);
 
     connect(&tutorialPage,
             &TutorialPage::changePage,
@@ -23,5 +26,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::switchToSandboxPage()
 {
-    ui->currentWindowHolder->addWidget(&sandboxPage);
+    ui->windowStack->setCurrentWidget(&sandboxPage);
+    ui->windowStack->removeWidget(&tutorialPage);
+    ui->windowStack->resize(sandboxPage.size());
+    this->setFixedSize(sandboxPage.size());
 }

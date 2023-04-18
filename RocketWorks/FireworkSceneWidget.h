@@ -1,8 +1,6 @@
 #ifndef FIREWORKSCENEWIDGET_H
 #define FIREWORKSCENEWIDGET_H
 
-#endif // FIREWORKSCENEWIDGET_H
-
 #include <QWidget>
 #include <Box2D/Box2D.h>
 #include <QTimer>
@@ -26,3 +24,6 @@ private:
     QImage image;
     bool rocketMoving = false;
 };
+
+
+#endif // FIREWORKSCENEWIDGET_H
