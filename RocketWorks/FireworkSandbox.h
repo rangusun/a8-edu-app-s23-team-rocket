@@ -16,6 +16,9 @@ public:
     explicit FireworkSandbox(QWidget *parent = nullptr);
     ~FireworkSandbox();
 
+public slots:
+    void changeBackground(int checked);
+
 private:
     Ui::FireworkSandbox *ui;
 };

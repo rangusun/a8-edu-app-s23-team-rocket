@@ -16,12 +16,14 @@ signals:
 public slots:
     void updateWorld();
     void launchRocket();
+    void changeBackground(QString imagePath);
 
 private:
     b2World world;
     b2Body* body;
     QTimer timer;
     QImage image;
+    QImage background;
     bool rocketMoving = false;
 };
 

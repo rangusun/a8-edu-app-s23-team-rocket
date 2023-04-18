@@ -1,6 +1,13 @@
 <RCC>
     <qresource prefix="/FireworkResources">
         <file>Resources/Firework.png</file>
+        <file>Resources/LiftCharge.png</file>
+        <file>Resources/nightBackground.png</file>
+        <file>Resources/paperBackground.png</file>
+        <file>Resources/Particle.png</file>
+        <file>Resources/SandboxShell.png</file>
+        <file>Resources/StarIcon.png</file>
+        <file>Resources/Tube.png</file>
     </qresource>
     <qresource prefix="/TutorialResources">
         <file>Resources/mainrocketdiagram.png</file>

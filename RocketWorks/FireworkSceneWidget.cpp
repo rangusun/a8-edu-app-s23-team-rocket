@@ -6,8 +6,11 @@
 FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
     world(b2Vec2(0.0f, 10.0f)),
     timer(this),
-    image(":/FireworkResources/Resources/Firework.png")
+    image(":/FireworkResources/Resources/Firework.png"),
+    background(":/FireworkResources/Resources/paperBackground.png")
 {
+    background.scaled(this->width(), this->height());
+
     // Define the ground body.
     b2BodyDef groundBodyDef;
     groundBodyDef.position.Set(0.0f, 20.0f);
@@ -59,6 +62,10 @@ FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
 void FireworkSceneWidget::paintEvent(QPaintEvent *) {
     // Create a painter
     QPainter painter(this);
+
+    // Draw background
+    painter.drawImage(0, 0, background);
+
     b2Vec2 position = body->GetPosition();
     float angle = body->GetAngle();
 
@@ -82,5 +89,11 @@ void FireworkSceneWidget::updateWorld() {
 
 void FireworkSceneWidget::launchRocket()
 {
-  rocketMoving = true;
+    rocketMoving = true;
+}
+
+void FireworkSceneWidget::changeBackground(QString imagePath)
+{
+    background = QImage(imagePath);
+    background.scaled(this->width(), this->height());
 }
