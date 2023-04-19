@@ -170,6 +170,13 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="resetButton">
+       <property name="text">
+        <string>Reset</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QCheckBox" name="nightModeCheckBox">
        <property name="minimumSize">
         <size>

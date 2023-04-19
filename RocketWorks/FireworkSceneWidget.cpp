@@ -4,7 +4,7 @@
 
 
 FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
-    world(b2Vec2(0.0f, 10.0f)),
+    world(b2Vec2(0.0f, -10.0f)),
     timer(this),
     image(":/FireworkResources/Resources/Firework.png"),
     background(":/FireworkResources/Resources/paperBackground.png")
@@ -13,8 +13,8 @@ FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
 
     // Define the ground body.
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, 20.0f);
-    //groundBodyDef.type = b2_staticBody;
+    groundBodyDef.position.Set(0.0f, 30.0f);
+    groundBodyDef.type = b2_staticBody;
 
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -31,29 +31,30 @@ FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
     groundBody->CreateFixture(&groundBox, 0.0f);
 
     // Define the dynamic body. We set its position and call the body factory.
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(0.0f, 0.0f);
+    //b2BodyDef bodyDef;
+    rocketBodyDef.type = b2_dynamicBody;
+    rocketBodyDef.position.Set(10.0f, 30.0f);
 
-    body = world.CreateBody(&bodyDef);
+    rocketBody = world.CreateBody(&rocketBodyDef);
 
     // Define another box shape for our dynamic body.
-    b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(1.0f, 1.0f);
+
+    rocketDynamicBox.SetAsBox(1.0f, 1.0f);
 
     // Define the dynamic body fixture.
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &dynamicBox;
+    rocketFixtureDef.shape = &rocketDynamicBox;
 
     // Set the box density to be non-zero, so it will be dynamic.
-    fixtureDef.density = 1.0f;
+    rocketFixtureDef.density = 1.0f;
 
     // Override the default friction.
-    fixtureDef.friction = 0.3f;
-    fixtureDef.restitution = 0.9;
+    rocketFixtureDef.friction = 0.3f;
+    rocketFixtureDef.restitution = 0.9;
     // Add the shape to the body.
-    body->CreateFixture(&fixtureDef);
+    rocketBody->CreateFixture(&rocketFixtureDef);
     printf("Init world\n");
+
+
 
     connect(&timer, &QTimer::timeout, this, &FireworkSceneWidget::updateWorld);
     timer.start(10);
@@ -66,12 +67,12 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *) {
     // Draw background
     painter.drawImage(0, 0, background);
 
-    b2Vec2 position = body->GetPosition();
-    float angle = body->GetAngle();
+    b2Vec2 position = rocketBody->GetPosition();
+    float angle = rocketBody->GetAngle();
 
 //    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
 
-    painter.drawImage((int)(position.x*20), (int)(position.y*20), image);
+    painter.drawImage((int)(position.x*20), (int)(position.y*20), image.scaled(100,100));
     //painter.drawImage(200, 200, image);
 //    qDebug() << image;
     painter.end();
@@ -81,15 +82,37 @@ void FireworkSceneWidget::updateWorld() {
     // It is generally best to keep the time step and iterations fixed.
     if(rocketMoving)
     {
-        body->ApplyForce(b2Vec2(0,-100), body->GetWorldCenter(), true);
+        rocketBody->ApplyForce(b2Vec2(0,-100), rocketBody->GetWorldCenter(), true);
+        world.Step(1.0/60.0, 6, 2);
+        update();
     }
-    world.Step(1.0/60.0, 6, 2);
-    update();
 }
 
 void FireworkSceneWidget::launchRocket()
 {
     rocketMoving = true;
+}
+
+void FireworkSceneWidget::resetWorld()
+{
+   rocketMoving = false;
+    // Define the dynamic body. We set its position and call the body factory.
+   rocketBodyDef.type = b2_dynamicBody;
+   rocketBodyDef.position.Set(10.0f, 30.0f);
+
+   rocketBody = world.CreateBody(&rocketBodyDef);
+   rocketDynamicBox.SetAsBox(1.0f, 1.0f);
+   rocketFixtureDef.shape = &rocketDynamicBox;
+   // Set the box density to be non-zero, so it will be dynamic.
+   rocketFixtureDef.density = 1.0f;
+   // Override the default friction.
+   rocketFixtureDef.friction = 0.3f;
+   rocketFixtureDef.restitution = 0.9;
+   // Add the shape to the body.
+   rocketBody->CreateFixture(&rocketFixtureDef);
+   update();
+   //connect(&timer, &QTimer::timeout, this, &FireworkSceneWidget::updateWorld);
+  // timer.start(10);
 }
 
 void FireworkSceneWidget::changeBackground(QString imagePath)

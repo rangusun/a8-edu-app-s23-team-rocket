@@ -12,6 +12,11 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             ui->fireworkScene,
             &FireworkSceneWidget::launchRocket);
 
+    connect(ui->resetButton,
+            &QPushButton::clicked,
+            ui->fireworkScene,
+            &FireworkSceneWidget::resetWorld);
+
     connect(ui->nightModeCheckBox,
             &QCheckBox::stateChanged,
             this,
