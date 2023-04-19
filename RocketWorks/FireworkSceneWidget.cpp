@@ -119,4 +119,5 @@ void FireworkSceneWidget::changeBackground(QString imagePath)
 {
     background = QImage(imagePath);
     background.scaled(this->width(), this->height());
+    update();
 }
