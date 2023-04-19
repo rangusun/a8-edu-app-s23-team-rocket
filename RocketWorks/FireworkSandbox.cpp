@@ -1,5 +1,6 @@
 #include "FireworkSandbox.h"
 #include "ui_FireworkSandbox.h"
+#include <QDebug>
 
 FireworkSandbox::FireworkSandbox(QWidget *parent) :
     QWidget(parent),
@@ -21,6 +22,24 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             &QCheckBox::stateChanged,
             this,
             &FireworkSandbox::changeBackground);
+
+    connect(ui->shellDiameterSlider,
+            &QSlider::valueChanged,
+            this,
+            &FireworkSandbox::sliderValueChange);
+
+    connect(ui->colorsDropdown,
+            &QComboBox::currentTextChanged,
+            this,
+            &FireworkSandbox::colorDropdownChanged);
+    connect(ui->soundsDropdown,
+            &QComboBox::currentTextChanged,
+            this,
+            &FireworkSandbox::soundDropdownChanged);
+    connect(ui->shapeDropdown,
+            &QComboBox::currentTextChanged,
+            this,
+            &FireworkSandbox::shapeDropdownChanged);
 }
 
 FireworkSandbox::~FireworkSandbox()
@@ -38,4 +57,24 @@ void FireworkSandbox::changeBackground(int checked)
     {
         ui->fireworkScene->changeBackground(":/FireworkResources/Resources/paperBackground.png");
     }
+}
+
+void FireworkSandbox::sliderValueChange(int value)
+{
+    shellDiameter = value;
+}
+
+void FireworkSandbox::colorDropdownChanged(QString color)
+{
+
+}
+
+void FireworkSandbox::soundDropdownChanged(QString sound)
+{
+
+}
+
+void FireworkSandbox::shapeDropdownChanged(QString shape)
+{
+
 }
