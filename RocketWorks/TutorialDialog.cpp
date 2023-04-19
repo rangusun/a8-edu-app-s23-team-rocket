@@ -38,14 +38,14 @@ QString TutorialDialog::getText(RocketComponent component)
                "  - Crackling: Bismuth compounds divided in small granules\n"
                "  - Whistles: Aromatic organic compounds mixed with oxidiser\n";
     case liftCharge:
-        return "This is what gives the size of the firework display!\n"
-               "Blast charges are made out of black powder. They send firework stars off flying when they are ignited by the time delay fuse in a firework. The time delay fuse has to be made to the right length and burn time so that the blast charge does not explode while the firework is too close to the ground.";
-    case blastCharge:
         return "This is what gives your fireworks height!\n"
                "- Lift charges sit underneath the shell, on the bottom of the launch tube. When the lift charge is ignited by a fuse, it launches the firework upwards and ignites fuse, the time delay fuse.\n"
                "- Lift charges contain black powder, which is gun powder that is made with charcoal, sulfur, and potassium nitrate.\n"
                "- Lift charges would not work without a launch tube - they rely on pressure buildup inside a closed space to propel the firework upward.\n"
                "- The larger the lift charge is, the higher your firework will be launched!\n";
+    case blastCharge:
+        return "This is what gives the size of the firework display!\n"
+               "Blast charges are made out of black powder. They send firework stars off flying when they are ignited by the time delay fuse in a firework. The time delay fuse has to be made to the right length and burn time so that the blast charge does not explode while the firework is too close to the ground.";
     case other:
         return "- Fuse: Ignites the lift charge\n"
                "- Time Delay Fuse: Ignited by the lift charge, ignites the blast charge after a delay.\n"
