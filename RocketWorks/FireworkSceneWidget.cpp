@@ -31,7 +31,7 @@ FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
     groundBody->CreateFixture(&groundBox, 0.0f);
 
     // Define the dynamic body. We set its position and call the body factory.
-    //b2BodyDef bodyDef;
+    // b2BodyDef bodyDef;
     rocketBodyDef.type = b2_dynamicBody;
     rocketBodyDef.position.Set(10.0f, 30.0f);
 
