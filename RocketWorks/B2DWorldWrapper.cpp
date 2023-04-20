@@ -1,6 +1,6 @@
 #include "B2DWorldWrapper.h"
 
-B2DWorldWrapper::B2DWorldWrapper (int screenWidth, int screenHeight) :
+B2DWorldWrapper::B2DWorldWrapper (double screenWidth, double screenHeight) :
     world(b2Vec2(0.0f, -10.0f)), screenWidth{screenWidth}, screenHeight{screenHeight}
 {
     // We need to track coordinates relative to the box2d engine
@@ -35,7 +35,7 @@ void B2DWorldWrapper::addObject(WorldObject newObject)
     // Create a dynamic body
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(newObject.x * (virtualWidth / screenWidth), newObject.y * (virtualHeight / screenHeight));
+    bodyDef.position.Set(screenWidth - newObject.x * (virtualWidth / screenWidth), screenHeight - newObject.y * (virtualHeight / screenHeight));
     b2Body* body = world.CreateBody(&bodyDef);
 
     // Create a box shape for the body
@@ -76,8 +76,8 @@ WorldObject B2DWorldWrapper::getObject(string name)
 
     b2Body* foundBody = worldObjIter->second;
     foundObject.name = worldObjIter->first;
-    foundObject.x = foundBody->GetPosition().x * (screenWidth / virtualWidth);
-    foundObject.y = foundBody->GetPosition().y * (screenHeight / virtualHeight);
+    foundObject.x = screenWidth - foundBody->GetPosition().x * (screenWidth / virtualWidth);
+    foundObject.y = screenHeight - foundBody->GetPosition().y * (screenHeight / virtualHeight);
 
     foundObject.width = objectDimensions.find(name)->second.first;
     foundObject.height = objectDimensions.find(name)->second.second;
@@ -104,3 +104,8 @@ std::map<string, WorldObject> B2DWorldWrapper::getAllObjects()
 {
     return std::map<string, WorldObject>();
 }
+
+WorldObject::WorldObject() : name(""), x(0), y(0), width(0), height(0) {}
+
+WorldObject::WorldObject(string name, int x, int y, int width, int height) :
+    name(name), x(x), y(y), width(width), height(height) {}

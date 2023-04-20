@@ -15,6 +15,9 @@ struct WorldObject
     string name;
     int x, y;
     int width, height;
+
+    explicit WorldObject();
+    explicit WorldObject(string name, int x, int y, int width, int height);
 };
 
 class B2DWorldWrapper : public QObject
@@ -24,15 +27,15 @@ private:
     b2World world;
     map<string, b2Body*> worldObjects;
     map<string, std::pair<int, int>> objectDimensions;
-    int screenWidth;
-    int screenHeight;
+    double screenWidth;
+    double screenHeight;
     float virtualWidth = 100;
     float virtualHeight;
 
 
     QTimer timer;
 public:
-    explicit B2DWorldWrapper (int screenWidth, int screenHeight);
+    explicit B2DWorldWrapper (double screenWidth, double screenHeight);
 
     void addObject(WorldObject newObject);
     WorldObject getObject(string name);
@@ -41,8 +44,10 @@ public:
 
 
     void startWorldUpdates();
+
 signals:
     void worldUpdated();
+
 private slots:
     void updateWorld();
 };
