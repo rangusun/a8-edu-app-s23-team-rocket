@@ -1,57 +1,7 @@
 #include "B2DWorldWrapper.h"
 #include <QDebug>
 
-B2DWorldWrapper::B2DWorldWrapper() : world(b2Vec2(0.0f, -10.0f)), screenWidth(100.0), screenHeight(100.0), zoom(1.0)
-{
-//    // Let world object know about the screen width and height and the desired zoom so that it can
-//    // perform calculations correctly. "Zoom" adjusts how zoomed into the world we are in the window
-//    WorldObject::setScreenWidthAndHeight(screenWidth, screenHeight);
-
-//    // If the zoom is given as 0, set it to 1 (if zoom > 0, don't change zoom, else set it to 1)
-//    zoom = zoom > 0 ? zoom : 1;
-//    WorldObject::setZoom(zoom);
-
-//    // Make the ground for the world -------------------------------------------------
-
-//    // NOTE: Width, Height, X, and Y for the ground are all calculated to be in cartesian (Box2D) units
-
-//    // Set the values for the ground. Ground box is twice the width of the screen (just so that it stretches
-//    // past the edges of the screen) and 40 pixels tall (its world height will depend on the zoom chosen; this
-//    // essentially ensures that no matter what zoom is chosen, the top of the ground will show as 20 pixels
-//    // above the bottom of the screen)
-////    float groundWidth = screenWidth / zoom;
-////    float groundHeight = 20.0 / zoom;
-
-//    float groundWidth = screenWidth / zoom;
-//    float groundHeight = 20.0 / zoom;
-
-//    // The ground is set at the center bottom of the screen. The math for the y pos ensures that the center of the
-//    // ground will be set centered exactly on the bottom of the screen no matter what zoom factor is chosen (so the
-//    // top of the ground will show above the bottom of the screen a bit, but the bottom will be off screen)
-////    float groundXPos = 0.0;
-////    float groundYPos = (screenHeight/2.0 - screenHeight) / zoom - groundHeight;
-
-//    float groundXPos = 0.0;
-//    float groundYPos = 0.0;
-
-//    // Create the ground object and add it to the Box2D world
-//    b2BodyDef groundBodyDef;
-//    groundBodyDef.position.Set(groundXPos, groundYPos);
-
-//    b2Body* groundBody = world.CreateBody(&groundBodyDef);
-//    b2PolygonShape groundBox;
-
-//    groundBox.SetAsBox(groundWidth, groundHeight);
-//    groundBody->CreateFixture(&groundBox, 0.0f);
-
-//    //std::pair<string, b2Body*> groundMapping("ground", groundBody);
-//    worldObjects["ground"] = groundBody;
-
-//    std::pair<int, int> dimensions{groundWidth, groundHeight };
-//    //std::pair<string, std::pair<int, int>> dimensionsMapping("ground", dimensions);
-//    //objectDimensions.insert(dimensionsMapping);
-//    objectDimensions["ground"] = dimensions;
-}
+B2DWorldWrapper::B2DWorldWrapper() : world(b2Vec2(0.0f, -10.0f)), screenWidth(100.0), screenHeight(100.0), zoom(1.0) {}
 
 void B2DWorldWrapper::initializeWorld(double screenWidth, double screenHeight, double zoom)
 {
