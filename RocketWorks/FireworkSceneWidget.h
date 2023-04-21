@@ -5,6 +5,7 @@
 #include <Box2D/Box2D.h>
 #include <QTimer>
 #include "B2DWorldWrapper.h"
+#include "WorldObject.h"
 
 class FireworkSceneWidget : public QWidget
 {
@@ -21,21 +22,16 @@ public slots:
     void changeBackground(QString imagePath);
 
 private:
-//    b2World world;
-//    b2Body* rocketBody;
     QTimer timer;
     QImage image;
     QImage background;
     bool rocketMoving = false;
     bool reset = false;
-    // Define the dynamic body. We set its position and call the body factory.
-//    b2BodyDef rocketBodyDef;
-//    // Define another box shape for our dynamic body.
-//    b2PolygonShape rocketDynamicBox;
-//    // Define the dynamic body fixture.
-//    b2FixtureDef rocketFixtureDef;
 
     B2DWorldWrapper world;
+
+protected:
+    void resizeEvent(QResizeEvent* event);
 };
 
 

@@ -3,6 +3,7 @@
 #include <tuple>
 #include <string>
 #include <map>
+#include "WorldObject.h"
 
 
 using std::string;
@@ -10,15 +11,6 @@ using std::map;
 
 #ifndef B2DWORLDWRAPPER_H
 #define B2DWORLDWRAPPER_H
-struct WorldObject
-{
-    string name;
-    int x, y;
-    int width, height;
-
-    explicit WorldObject();
-    explicit WorldObject(string name, int x, int y, int width, int height);
-};
 
 class B2DWorldWrapper : public QObject
 {
@@ -26,24 +18,24 @@ class B2DWorldWrapper : public QObject
 private:
     b2World world;
     map<string, b2Body*> worldObjects;
-    map<string, std::pair<int, int>> objectDimensions;
+    map<string, std::pair<double, double>> objectDimensions;
+
     double screenWidth;
     double screenHeight;
-    float virtualWidth = 100;
-    float virtualHeight;
-
+    double zoom;
 
     QTimer timer;
 public:
-    explicit B2DWorldWrapper (double screenWidth, double screenHeight);
+    explicit B2DWorldWrapper();
 
     void addObject(WorldObject newObject);
     WorldObject getObject(string name);
     map<string, WorldObject> getAllObjects();
     void applyForceToObject(string name, int x, int y);
 
-
     void startWorldUpdates();
+
+    void initializeWorld(double screenWidth, double screenHeight, double zoom);
 
 signals:
     void worldUpdated();

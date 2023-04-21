@@ -60,6 +60,7 @@ SOURCES += \
     FireworkSceneWidget.cpp \
     TutorialDialog.cpp \
     TutorialPage.cpp \
+    WorldObject.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -117,6 +118,7 @@ HEADERS += \
     TutorialComponents.h \
     TutorialDialog.h \
     TutorialPage.h \
+    WorldObject.h \
     mainwindow.h
 
 FORMS += \

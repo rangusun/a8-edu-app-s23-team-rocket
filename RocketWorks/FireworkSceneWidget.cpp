@@ -7,17 +7,14 @@ FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
     timer(this),
     image(":/FireworkResources/Resources/Firework.png"),
     background(":/FireworkResources/Resources/paperBackground.png"),
-    world(width(), height())
+    world()
 {
     background.scaled(this->width(), this->height());
-
-    world.addObject(WorldObject("firework", 0, 30, 1, 1));
 
     connect(&world,
             &B2DWorldWrapper::worldUpdated,
             this,
             [this]() { update(); });
-
 
 //    // Define the ground body.
 //    b2BodyDef groundBodyDef;
@@ -68,7 +65,8 @@ FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
 //    timer.start(10);
 }
 
-void FireworkSceneWidget::paintEvent(QPaintEvent *) {
+void FireworkSceneWidget::paintEvent(QPaintEvent *)
+{
     // Create a painter
     QPainter painter(this);
 
@@ -78,19 +76,16 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *) {
     WorldObject ground = world.getObject("ground");
     WorldObject firework = world.getObject("firework");
 
-    painter.drawRect(QRect(ground.x, ground.y, ground.width, ground.height));
-    painter.drawRect(QRect(firework.x, firework.y, firework.width, firework.height));
+    painter.setPen(QColor(255, 0, 0));
 
-//    b2Vec2 position = rocketBody->GetPosition();
-//    float angle = rocketBody->GetAngle();
+    qDebug() << "Ground width:" << ground.width << "Ground height:" << ground.height;
+    qDebug() << "Ground drawX:" << ground.drawX << "Ground drawY:" << ground.drawY;
 
-//    printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
+    painter.drawRect(QRect(ground.drawX, ground.drawY, ground.width, ground.height));
+    painter.drawRect(QRect(firework.drawX, firework.drawY, firework.width, firework.height));
 
-//    painter.drawImage((int)(position.x*20), (int)(position.y*20), image.scaled(100,100));
-    //painter.drawImage(200, 200, image);
-//    qDebug() << image;
     painter.end();
-   }
+}
 
 void FireworkSceneWidget::updateWorld() {
     // It is generally best to keep the time step and iterations fixed.
@@ -135,4 +130,15 @@ void FireworkSceneWidget::changeBackground(QString imagePath)
     background = QImage(imagePath);
     background.scaled(this->width(), this->height());
     update();
+}
+
+void FireworkSceneWidget::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+
+    world.initializeWorld(width(), height(), 10.0);
+
+    world.addObject(WorldObject::makeWorldObjectfromCartCoords("firework", 0, 0, 20, 30));
+
+    world.startWorldUpdates();
 }
