@@ -73,16 +73,21 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
     // Draw background
     painter.drawImage(0, 0, background);
 
-    WorldObject ground = world.getObject("ground");
-    WorldObject firework = world.getObject("firework");
-
+    //WorldObject ground = world.getObject("ground");
+    //WorldObject firework = world.getObject("firework");
     painter.setPen(QColor(255, 0, 0));
 
-    qDebug() << "Ground width:" << ground.width << "Ground height:" << ground.height;
-    qDebug() << "Ground drawX:" << ground.drawX << "Ground drawY:" << ground.drawY;
+    //qDebug() << "Ground width:" << ground.width << "Ground height:" << ground.height;
+    //qDebug() << "Ground drawX:" << ground.drawX << "Ground drawY:" << ground.drawY;
 
-    painter.drawRect(QRect(ground.drawX, ground.drawY, ground.width, ground.height));
-    painter.drawRect(QRect(firework.drawX, firework.drawY, firework.width, firework.height));
+    //painter.drawRect(QRect(ground.drawX, ground.drawY, ground.width, ground.height));
+    //painter.drawRect(QRect(firework.drawX, firework.drawY, firework.width, firework.height));
+
+    for (auto const &pair: world.getAllObjects())
+    {
+        const WorldObject& obj = pair.second;
+        painter.drawRect(QRect(obj.drawX, obj.drawY, obj.width, obj.height));
+    }
 
     painter.end();
 }
@@ -101,6 +106,7 @@ void FireworkSceneWidget::launchRocket()
 {
 //    rocketMoving = true;
 //    rocketBody->ApplyLinearImpulse(b2Vec2(0,-100), rocketBody->GetWorldCenter(), true);
+    QTimer::singleShot(100, this, &FireworkSceneWidget::explode);
 }
 
 void FireworkSceneWidget::resetWorld()
@@ -131,6 +137,31 @@ void FireworkSceneWidget::changeBackground(QString imagePath)
     background.scaled(this->width(), this->height());
     update();
 }
+
+void FireworkSceneWidget::explode()
+{
+    qDebug()<<"boom!";
+    const int numParticles = 360;
+    const double angleIncrement = (2*3.14159265358979323846) / numParticles;
+    const int impulseStrength = 1;
+    for (int i = 0; i < numParticles; i++)
+    {
+        //"firework" is the position we want to spawn all particles from.
+
+        double cosine = cos(i*angleIncrement);
+        double sine = sin(i*angleIncrement);
+
+
+        world.addObject(WorldObject::makeWorldObjectfromCartCoords("p"+std::to_string(i) , cosine*200, sine*200, 1, 1));
+        //WorldObject particle = world.getObject("p1");
+        int x = (int)(impulseStrength * (cos(i * angleIncrement)));
+        int y = (int)(impulseStrength * (sin(i * angleIncrement)));
+        world.applyForceToObject("p"+std::to_string(i), x, y);
+    }
+
+}
+
+
 
 void FireworkSceneWidget::resizeEvent(QResizeEvent *event)
 {

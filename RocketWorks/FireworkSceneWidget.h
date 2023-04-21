@@ -20,6 +20,7 @@ public slots:
     void launchRocket();
     void resetWorld();
     void changeBackground(QString imagePath);
+    void explode();
 
 private:
     QTimer timer;

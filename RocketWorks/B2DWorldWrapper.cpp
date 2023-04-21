@@ -109,7 +109,11 @@ WorldObject B2DWorldWrapper::getObject(string name)
 
 void B2DWorldWrapper::applyForceToObject(string name, int x, int y)
 {
+    if (worldObjects.count(name) == 0){
+        qDebug()<<"uh oh\n";
+    }
 
+    worldObjects[name]->ApplyForce(b2Vec2(x, y), b2Vec2(0,0), true);
 }
 
 void B2DWorldWrapper::startWorldUpdates()
@@ -120,7 +124,7 @@ void B2DWorldWrapper::startWorldUpdates()
 
 void B2DWorldWrapper::updateWorld()
 {
-    world.Step(1.0/60.0, 6, 2);
+    world.Step(1.0/120.0, 6, 2);
     emit worldUpdated();
 }
 
