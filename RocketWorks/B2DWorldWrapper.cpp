@@ -60,10 +60,17 @@ void B2DWorldWrapper::initializeWorld(double screenWidth, double screenHeight, d
 
 void B2DWorldWrapper::addObject(WorldObject newObject)
 {
+    auto foundObject = worldObjects.find(newObject.name);
+
+    if(foundObject != worldObjects.end())
+    {
+        world.DestroyBody(foundObject->second);
+    }
+
     // Create a dynamic body
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(newObject.box2DX, newObject.box2DX);
+    bodyDef.position.Set(newObject.box2DX, newObject.box2DY);
     b2Body* body = world.CreateBody(&bodyDef);
 
     // Create a box shape for the body
