@@ -8,6 +8,7 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
     connect(ui->launchButton,
             &QPushButton::clicked,
             ui->fireworkScene,
@@ -25,21 +26,22 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
 
     connect(ui->shellDiameterSlider,
             &QSlider::valueChanged,
-            this,
-            &FireworkSandbox::sliderValueChange);
+            &fireworkProps,
+            &FireworkProperties::setShellDiameter);
 
     connect(ui->colorsDropdown,
             &QComboBox::currentTextChanged,
-            this,
-            &FireworkSandbox::colorDropdownChanged);
+            &fireworkProps,
+            &FireworkProperties::setColor);
     connect(ui->soundsDropdown,
             &QComboBox::currentTextChanged,
-            this,
-            &FireworkSandbox::soundDropdownChanged);
+            &fireworkProps,
+            &FireworkProperties::setSound);
+
     connect(ui->shapeDropdown,
             &QComboBox::currentTextChanged,
-            this,
-            &FireworkSandbox::shapeDropdownChanged);
+            &fireworkProps,
+            &FireworkProperties::setShape);
 }
 
 FireworkSandbox::~FireworkSandbox()
@@ -59,22 +61,3 @@ void FireworkSandbox::changeBackground(int checked)
     }
 }
 
-void FireworkSandbox::sliderValueChange(int value)
-{
-    shellDiameter = value;
-}
-
-void FireworkSandbox::colorDropdownChanged(QString color)
-{
-
-}
-
-void FireworkSandbox::soundDropdownChanged(QString sound)
-{
-
-}
-
-void FireworkSandbox::shapeDropdownChanged(QString shape)
-{
-
-}

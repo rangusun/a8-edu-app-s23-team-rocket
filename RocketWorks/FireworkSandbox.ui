@@ -42,8 +42,20 @@
      </item>
      <item>
       <widget class="QSlider" name="shellDiameterSlider">
+       <property name="minimum">
+        <number>6</number>
+       </property>
+       <property name="maximum">
+        <number>36</number>
+       </property>
+       <property name="singleStep">
+        <number>6</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="tickPosition">
+        <enum>QSlider::TicksBelow</enum>
        </property>
       </widget>
      </item>
@@ -87,7 +99,48 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="colorsDropdown"/>
+          <widget class="QComboBox" name="colorsDropdown">
+           <item>
+            <property name="text">
+             <string>Aluminum</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Barium Salts</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Calcium Salts</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Copper Salts</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Lithium</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Sodium Salts</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Strontium Salts</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Strontium + Copper Compounds</string>
+            </property>
+           </item>
+          </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_4">
@@ -97,7 +150,23 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="soundsDropdown"/>
+          <widget class="QComboBox" name="soundsDropdown">
+           <item>
+            <property name="text">
+             <string>Crackle</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Whistle</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Bang</string>
+            </property>
+           </item>
+          </widget>
          </item>
         </layout>
        </item>
@@ -116,7 +185,28 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="shapeDropdown"/>
+      <widget class="QComboBox" name="shapeDropdown">
+       <item>
+        <property name="text">
+         <string>Circle</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Heart</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Star</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Smile</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item>
       <spacer name="verticalSpacer">

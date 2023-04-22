@@ -56,6 +56,7 @@ SOURCES += \
     Box2D/Dynamics/b2World.cpp \
     Box2D/Dynamics/b2WorldCallbacks.cpp \
     Box2D/Rope/b2Rope.cpp \
+    FireworkProperties.cpp \
     FireworkSandbox.cpp \
     FireworkSceneWidget.cpp \
     TutorialDialog.cpp \
@@ -113,8 +114,10 @@ HEADERS += \
     Box2D/Dynamics/b2World.h \
     Box2D/Dynamics/b2WorldCallbacks.h \
     Box2D/Rope/b2Rope.h \
+    FireworkProperties.h \
     FireworkSandbox.h \
     FireworkSceneWidget.h \
+    FireworkShapeEnum.h \
     TutorialComponents.h \
     TutorialDialog.h \
     TutorialPage.h \

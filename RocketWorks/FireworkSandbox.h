@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "FireworkSceneWidget.h"
+#include "FireworkShapeEnum.h"
+#include "FireworkProperties.h"
 
 namespace Ui {
 class FireworkSandbox;
@@ -18,15 +20,8 @@ public:
 
 public slots:
     void changeBackground(int checked);
-    void sliderValueChange(int value);
-    void colorDropdownChanged(QString color);
-    void soundDropdownChanged(QString sound);
-    void shapeDropdownChanged(QString shape);
 private:
-    int shellDiameter;
-    QString currentColor;
-    QString currentSound;
-    QString currentShape;
+    FireworkProperties fireworkProps;
     Ui::FireworkSandbox *ui;
 
 };
