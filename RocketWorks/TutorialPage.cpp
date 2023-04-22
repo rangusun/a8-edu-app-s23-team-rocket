@@ -8,7 +8,7 @@ TutorialPage::TutorialPage(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    dialogsVisited[star] = false;
+    dialogsVisited[stars] = false;
     dialogsVisited[blastCharge] = false;
     dialogsVisited[liftCharge] = false;
     dialogsVisited[other] = false;
@@ -16,7 +16,7 @@ TutorialPage::TutorialPage(QWidget *parent) :
     connect(ui->starButton,
             &QPushButton::clicked,
             this,
-            [this]() { componentDialog.showComponentDialog(star); dialogsVisited[star] = true; CheckIfAllPagesVisited(); });
+            [this]() { componentDialog.showComponentDialog(stars); dialogsVisited[stars] = true; CheckIfAllPagesVisited(); });
     connect(ui->blastButton,
             &QPushButton::clicked,
             this,

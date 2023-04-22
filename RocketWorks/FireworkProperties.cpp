@@ -36,34 +36,38 @@ void FireworkProperties::setShellDiameter(int diameter)
 
 void FireworkProperties::setColor(QString color)
 {
-    switch(color)
+    if(color == "Strontium Salts")
     {
-    case "Strontium Salts":
-        particleColor = QColor::red;
-        return;
-    case "Calcium Salts":
-        particleColor = QColor::fromRgb(255, 132, 0);
-        return;
-    case "Sodium Salts":
-        particleColor = QColor::yellow;
-        return;
-    case "Barium Salts":
-        particleColor = QColor::green;
-        return;
-    case "Copper Salts":
-        particleColor = QColor::blue;
-        return;
-    case "Strontium + Copper Compounds":
-        particleColor = QColor::fromRgb(170, 96, 219);
-        return;
-    case "Aluminum":
-        particleColor = QColor::white;
-        return;
-    case "Lithium":
-        particleColor = QColor::fromRgb(255, 135, 211);
-        return;
+        particleColor = QColor("red");
     }
-
+    else if(color == "Calcium Salts")
+    {
+        particleColor = QColor::fromRgb(255, 132, 0);
+    }
+    else if(color == "Sodium Salts")
+    {
+        particleColor = QColor("yellow");
+    }
+    else if(color == "Barium Salts")
+    {
+        particleColor = QColor("green");
+    }
+    else if(color == "Copper Salts")
+    {
+        particleColor = QColor("blue");
+    }
+    else if(color == "Strontium + Copper Compounds")
+    {
+        particleColor = QColor::fromRgb(170, 96, 219);
+    }
+    else if(color == "Aluminum")
+    {
+        particleColor = QColor("white");
+    }
+    else if(color == "Lithium")
+    {
+        particleColor = QColor::fromRgb(255, 135, 211);
+    }
 
 }
 

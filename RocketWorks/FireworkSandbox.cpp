@@ -23,7 +23,7 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             &QCheckBox::stateChanged,
             this,
             &FireworkSandbox::changeBackground);
-
+/*
     connect(ui->shellDiameterSlider,
             &QSlider::valueChanged,
             &fireworkProps,
@@ -33,6 +33,7 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             &QComboBox::currentTextChanged,
             &fireworkProps,
             &FireworkProperties::setColor);
+
     connect(ui->soundsDropdown,
             &QComboBox::currentTextChanged,
             &fireworkProps,
@@ -42,6 +43,7 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             &QComboBox::currentTextChanged,
             &fireworkProps,
             &FireworkProperties::setShape);
+*/
 }
 
 FireworkSandbox::~FireworkSandbox()

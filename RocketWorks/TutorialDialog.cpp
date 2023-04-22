@@ -20,7 +20,7 @@ QString TutorialDialog::getText(RocketComponent component)
 {
     switch(component)
     {
-    case star:
+    case stars:
         return "This is what gives color to your fireworks!\n"
                "- Stars are the most important component of a firework and the part you see in the night sky. They are small, flammable objects that get ignited and dispersed into the air by the blast charge when the firework shell is at a sufficient height.\n"
                "- Stars can be made of a variety of metal salts and other chemical compounds to control color, sound, and light effects.\n"
@@ -60,7 +60,7 @@ QString TutorialDialog::getTitle(RocketComponent component)
 {
     switch(component)
     {
-    case star:
+    case stars:
         return "Firework Stars";
     case liftCharge:
         return "Lift Charge";
@@ -76,7 +76,7 @@ QPixmap TutorialDialog::getImage(RocketComponent component)
 {
     switch(component)
     {
-    case star:
+    case stars:
         return QPixmap(":/TutorialResources/Resources/StarIcon.png");
     case liftCharge:
         return QPixmap(":/TutorialResources/Resources/LiftChargeIcon.png");
