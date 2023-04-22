@@ -143,7 +143,7 @@ void FireworkSceneWidget::explode()
     qDebug()<<"boom!";
     const int numParticles = 360;
     const double angleIncrement = (2*3.14159265358979323846) / numParticles;
-    const int impulseStrength = 1;
+    const int impulseStrength = 10;
     for (int i = 0; i < numParticles; i++)
     {
         //"firework" is the position we want to spawn all particles from.
@@ -152,7 +152,7 @@ void FireworkSceneWidget::explode()
         double sine = sin(i*angleIncrement);
 
 
-        world.addObject(WorldObject::makeWorldObjectfromCartCoords("p"+std::to_string(i) , cosine*200, sine*200, 1, 1));
+        world.addObject(WorldObject::makeWorldObjectfromCartCoords("p"+std::to_string(i) , cosine*20, sine*20, 1, 1));
         //WorldObject particle = world.getObject("p1");
         int x = (int)(impulseStrength * (cos(i * angleIncrement)));
         int y = (int)(impulseStrength * (sin(i * angleIncrement)));
