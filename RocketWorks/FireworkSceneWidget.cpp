@@ -6,7 +6,7 @@
 FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
     timer(this),
     image(":/FireworkResources/Resources/Firework.png"),
-    background(":/FireworkResources/Resources/paperBackground.png"),
+    background(":/FireworkResources/Resources/nightBackground.png"),
     world()
 {
     background = background.scaled(this->width(), this->height());
@@ -49,7 +49,10 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
 void FireworkSceneWidget::launchRocket()
 {
     int baseLaunchPower = 35;
-    world.addObject(WorldObject::makeWorldObjectFromCartCoords("shell", 0, -width()/ 2, fireworkProps.getShellDiameter(), fireworkProps.getShellDiameter()));
+    WorldObject ground = world.getObject("ground");
+    double shellY = ground.cartY  + ground.height/2.0 + fireworkProps.getShellDiameter()/2.0;
+
+    world.addObject(WorldObject::makeWorldObjectFromCartCoords("shell", 0, shellY, fireworkProps.getShellDiameter(), fireworkProps.getShellDiameter()));
     world.applyForceToObject("shell", 0, baseLaunchPower * fireworkProps.getShellDiameter() * fireworkProps.getShellDiameter());
     QTimer::singleShot(fireworkProps.getFlightDuration(), this, &FireworkSceneWidget::explode);
 }
@@ -99,11 +102,11 @@ void FireworkSceneWidget::explode()
     }
 }
 
-
-
 void FireworkSceneWidget::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
+
+    changeBackground(":/FireworkResources/Resources/nightBackground.png");
 
     world.initializeWorld(width(), height(), 10.0);
 
