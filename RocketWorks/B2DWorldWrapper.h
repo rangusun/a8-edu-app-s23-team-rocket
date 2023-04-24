@@ -29,6 +29,7 @@ public:
     explicit B2DWorldWrapper();
 
     void addObject(WorldObject newObject);
+    void removeObject(string name);
     WorldObject getObject(string name);
     map<string, WorldObject> getAllObjects();
     void applyForceToObject(string name, int x, int y);

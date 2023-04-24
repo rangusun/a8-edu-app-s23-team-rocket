@@ -49,12 +49,10 @@ void B2DWorldWrapper::initializeWorld(double screenWidth, double screenHeight, d
     groundBox.SetAsBox(groundWidth, groundHeight);
     groundBody->CreateFixture(&groundBox, 0.0f);
 
-    //std::pair<string, b2Body*> groundMapping("ground", groundBody);
     worldObjects["ground"] = groundBody;
 
     std::pair<double, double> dimensions{ groundWidth * 2.0, groundHeight * 2.0 };
-    //std::pair<string, std::pair<int, int>> dimensionsMapping("ground", dimensions);
-    //objectDimensions.insert(dimensionsMapping);
+
     objectDimensions["ground"] = dimensions;
 }
 
@@ -89,15 +87,23 @@ void B2DWorldWrapper::addObject(WorldObject newObject)
 
     // Add the new dynamic-body object to the list of world objects
     // to keep track of
-    //std::pair<string, b2Body*> objectMapping(newObject.name, body);
-    //worldObjects.insert(objectMapping);
+
     worldObjects[newObject.name] = body;
 
     std::pair<double, double> dimensions{(newObject.width / zoom), (newObject.height / zoom)};
 
-    //std::pair<string, std::pair<int, int>> dimensionsMapping("ground", dimensions);
-    //objectDimensions.insert(newObject.name, dimensions);
     objectDimensions[newObject.name] = dimensions;
+}
+
+void B2DWorldWrapper::removeObject(string name)
+{
+    auto foundObject = worldObjects.find(name);
+
+    if(foundObject != worldObjects.end())
+    {
+        world.DestroyBody(foundObject->second);
+    }
+    worldObjects.erase(name);
 }
 
 WorldObject B2DWorldWrapper::getObject(string name)
@@ -120,7 +126,7 @@ void B2DWorldWrapper::applyForceToObject(string name, int x, int y)
         qDebug()<<"uh oh\n";
     }
 
-    worldObjects[name]->ApplyForce(b2Vec2(x, y), b2Vec2(0,0), true);
+    worldObjects[name]->ApplyForce(b2Vec2(x, y), b2Vec2(worldObjects[name]->GetPosition().x,worldObjects[name]->GetPosition().y), true);
 }
 
 void B2DWorldWrapper::startWorldUpdates()

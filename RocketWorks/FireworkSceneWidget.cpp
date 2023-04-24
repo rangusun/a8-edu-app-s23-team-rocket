@@ -9,60 +9,12 @@ FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
     background(":/FireworkResources/Resources/paperBackground.png"),
     world()
 {
-    background.scaled(this->width(), this->height());
+    background = background.scaled(this->width(), this->height());
 
     connect(&world,
             &B2DWorldWrapper::worldUpdated,
             this,
             [this]() { update(); });
-
-//    // Define the ground body.
-//    b2BodyDef groundBodyDef;
-//    groundBodyDef.position.Set(0.0f, 30.0f);
-//    groundBodyDef.type = b2_staticBody;
-
-//    // Call the body factory which allocates memory for the ground body
-//    // from a pool and creates the ground box shape (also from a pool).
-//    // The body is also added to the world.
-//    b2Body* groundBody = world.CreateBody(&groundBodyDef);
-
-//    // Define the ground box shape.
-//    b2PolygonShape groundBox;
-
-//    // The extents are the half-widths of the box.
-//    groundBox.SetAsBox(50.0f, 10.0f);
-
-//    // Add the ground fixture to the ground body.
-//    groundBody->CreateFixture(&groundBox, 0.0f);
-
-//    // Define the dynamic body. We set its position and call the body factory.
-//    // b2BodyDef bodyDef;
-//    rocketBodyDef.type = b2_dynamicBody;
-//    rocketBodyDef.position.Set(10.0f, 30.0f);
-
-//    rocketBody = world.CreateBody(&rocketBodyDef);
-
-//    // Define another box shape for our dynamic body.
-
-//    rocketDynamicBox.SetAsBox(1.0f, 1.0f);
-
-//    // Define the dynamic body fixture.
-//    rocketFixtureDef.shape = &rocketDynamicBox;
-
-//    // Set the box density to be non-zero, so it will be dynamic.
-//    rocketFixtureDef.density = 1.0f;
-
-//    // Override the default friction.
-//    rocketFixtureDef.friction = 0.3f;
-//    rocketFixtureDef.restitution = 0.9;
-//    // Add the shape to the body.
-//    rocketBody->CreateFixture(&rocketFixtureDef);
-//    printf("Init world\n");
-
-
-
-//    connect(&timer, &QTimer::timeout, this, &FireworkSceneWidget::updateWorld);
-//    timer.start(10);
 }
 
 void FireworkSceneWidget::paintEvent(QPaintEvent *)
@@ -73,92 +25,78 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
     // Draw background
     painter.drawImage(0, 0, background);
 
-    //WorldObject ground = world.getObject("ground");
-    //WorldObject firework = world.getObject("firework");
-    painter.setPen(QColor(255, 0, 0));
-
     //qDebug() << "Ground width:" << ground.width << "Ground height:" << ground.height;
     //qDebug() << "Ground drawX:" << ground.drawX << "Ground drawY:" << ground.drawY;
-
-    //painter.drawRect(QRect(ground.drawX, ground.drawY, ground.width, ground.height));
-    //painter.drawRect(QRect(firework.drawX, firework.drawY, firework.width, firework.height));
 
     for (auto const &pair: world.getAllObjects())
     {
         const WorldObject& obj = pair.second;
+        if(obj.name.find("particle") != string::npos)
+        {
+            painter.setPen(fireworkProps.getParticleColor());
+        }
+        else
+        {
+            painter.setPen(QColor(255, 0, 0));
+        }
+
         painter.drawRect(QRect(obj.drawX, obj.drawY, obj.width, obj.height));
     }
 
     painter.end();
 }
 
-void FireworkSceneWidget::updateWorld() {
-    // It is generally best to keep the time step and iterations fixed.
-//    if(rocketMoving)
-//    {
-//        rocketBody->ApplyForce(b2Vec2(0,-100), rocketBody->GetWorldCenter(), true);
-//        world.Step(1.0/60.0, 6, 2);
-//        update();
-//    }
-}
-
 void FireworkSceneWidget::launchRocket()
 {
-//    rocketMoving = true;
-//    rocketBody->ApplyLinearImpulse(b2Vec2(0,-100), rocketBody->GetWorldCenter(), true);
-    QTimer::singleShot(100, this, &FireworkSceneWidget::explode);
+    int baseLaunchPower = 35;
+    world.addObject(WorldObject::makeWorldObjectFromCartCoords("shell", 0, -width()/ 2, fireworkProps.getShellDiameter(), fireworkProps.getShellDiameter()));
+    world.applyForceToObject("shell", 0, baseLaunchPower * fireworkProps.getShellDiameter() * fireworkProps.getShellDiameter());
+    QTimer::singleShot(fireworkProps.getFlightDuration(), this, &FireworkSceneWidget::explode);
 }
 
 void FireworkSceneWidget::resetWorld()
 {
-//   rocketMoving = false;
-//    // Define the dynamic body. We set its position and call the body factory.
-//   rocketBodyDef.type = b2_dynamicBody;
-//   rocketBodyDef.position.Set(10.0f, 30.0f);
-
-//   rocketBody = world.CreateBody(&rocketBodyDef);
-//   rocketDynamicBox.SetAsBox(1.0f, 1.0f);
-//   rocketFixtureDef.shape = &rocketDynamicBox;
-//   // Set the box density to be non-zero, so it will be dynamic.
-//   rocketFixtureDef.density = 1.0f;
-//   // Override the default friction.
-//   rocketFixtureDef.friction = 0.3f;
-//   rocketFixtureDef.restitution = 0.9;
-//   // Add the shape to the body.
-//   rocketBody->CreateFixture(&rocketFixtureDef);
-//   update();
-//   //connect(&timer, &QTimer::timeout, this, &FireworkSceneWidget::updateWorld);
-//  // timer.start(10);
 }
 
 void FireworkSceneWidget::changeBackground(QString imagePath)
 {
     background = QImage(imagePath);
-    background.scaled(this->width(), this->height());
+    background = background.scaled(this->width(), this->height());
     update();
 }
 
 void FireworkSceneWidget::explode()
 {
     qDebug()<<"boom!";
-    const int numParticles = 360;
+    const int numParticles = 150;
     const double angleIncrement = (2*3.14159265358979323846) / numParticles;
-    const int impulseStrength = 10;
+    const int impulseStrength = fireworkProps.getBlastStrength();
+
+    int blastY = world.getObject("shell").cartY + 20;
+    world.removeObject("shell");
+
+    qDebug()<<blastY;
+
+
     for (int i = 0; i < numParticles; i++)
     {
         //"firework" is the position we want to spawn all particles from.
+        double jitterX = (rand() % (fireworkProps.getBlastStrength())) / 3;
+        double jitterY = (rand() % (fireworkProps.getBlastStrength())) / 3;
+
 
         double cosine = cos(i*angleIncrement);
         double sine = sin(i*angleIncrement);
 
+        world.addObject(WorldObject::makeWorldObjectFromCartCoords("particle"+std::to_string(i), cosine * fireworkProps.getBlastStrength(), sine * fireworkProps.getBlastStrength() + blastY, 1, 1));
 
-        world.addObject(WorldObject::makeWorldObjectfromCartCoords("p"+std::to_string(i) , cosine*20, sine*20, 1, 1));
-        //WorldObject particle = world.getObject("p1");
-        int x = (int)(impulseStrength * (cos(i * angleIncrement)));
-        int y = (int)(impulseStrength * (sin(i * angleIncrement)));
-        world.applyForceToObject("p"+std::to_string(i), x, y);
+        int x = (int)(impulseStrength * (cos(i * angleIncrement))) + jitterX;
+        int y = (int)(impulseStrength * (sin(i * angleIncrement))) + jitterY;
+        world.applyForceToObject("particle"+std::to_string(i), 0, 20);
+
+        world.applyForceToObject("particle"+std::to_string(i), x, y);
+
     }
-
 }
 
 
@@ -169,7 +107,7 @@ void FireworkSceneWidget::resizeEvent(QResizeEvent *event)
 
     world.initializeWorld(width(), height(), 10.0);
 
-    world.addObject(WorldObject::makeWorldObjectfromCartCoords("firework", 0, 0, 20, 30));
+    //world.addObject(WorldObject::makeWorldObjectFromCartCoords("firework", 0, -width()/2, 20, 30));
 
     world.startWorldUpdates();
 }

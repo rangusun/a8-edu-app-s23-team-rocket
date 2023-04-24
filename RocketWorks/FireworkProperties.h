@@ -4,12 +4,14 @@
 #ifndef FIREWORKPROPERTIES_H
 #define FIREWORKPROPERTIES_H
 
-class FireworkProperties
+class FireworkProperties : public QObject
 {
+    Q_OBJECT
 public:
     FireworkProperties();
     int getFlightDuration();
     int getBlastStrength();
+    int getShellDiameter();
     QColor getParticleColor();
     QString getSound();
     FireworkShape getShape();

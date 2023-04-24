@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>673</width>
+    <width>770</width>
     <height>554</height>
    </rect>
   </property>
@@ -16,9 +16,9 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
-  <property name="minimumSize">
+  <property name="baseSize">
    <size>
-    <width>673</width>
+    <width>770</width>
     <height>554</height>
    </size>
   </property>
@@ -43,13 +43,13 @@
      <item>
       <widget class="QSlider" name="shellDiameterSlider">
        <property name="minimum">
-        <number>6</number>
+        <number>3</number>
        </property>
        <property name="maximum">
-        <number>36</number>
+        <number>12</number>
        </property>
        <property name="singleStep">
-        <number>6</number>
+        <number>3</number>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -100,6 +100,11 @@
          </item>
          <item>
           <widget class="QComboBox" name="colorsDropdown">
+           <item>
+            <property name="text">
+             <string>- Choose a Material -</string>
+            </property>
+           </item>
            <item>
             <property name="text">
              <string>Aluminum</string>

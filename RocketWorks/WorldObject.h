@@ -23,7 +23,7 @@ public:
     static void setScreenWidthAndHeight(double screenWidth, double screenHeight);
     static void setZoom(double zoom);
 
-    static WorldObject makeWorldObjectfromCartCoords(string name, double x, double y, double width, double height);
+    static WorldObject makeWorldObjectFromCartCoords(string name, double x, double y, double width, double height);
     static WorldObject makeWorldObjectfromPixelCoords(string name, double x, double y, double width, double height);
     static WorldObject makeWorldObjectFromBox2DCoords(string name, double x, double y, double width, double height);
 

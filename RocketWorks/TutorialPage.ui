@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>703</width>
-    <height>750</height>
+    <height>650</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -16,16 +16,16 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
-  <property name="minimumSize">
+  <property name="maximumSize">
    <size>
     <width>703</width>
     <height>750</height>
    </size>
   </property>
-  <property name="maximumSize">
+  <property name="baseSize">
    <size>
     <width>703</width>
-    <height>750</height>
+    <height>650</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -112,8 +112,8 @@ alternate-background-color: rgb(227, 156, 255);</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>650</y>
+     <x>550</x>
+     <y>570</y>
      <width>141</width>
      <height>61</height>
     </rect>

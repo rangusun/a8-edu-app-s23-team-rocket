@@ -6,6 +6,7 @@
 #include <QTimer>
 #include "B2DWorldWrapper.h"
 #include "WorldObject.h"
+#include "FireworkProperties.h"
 
 class FireworkSceneWidget : public QWidget
 {
@@ -13,10 +14,11 @@ class FireworkSceneWidget : public QWidget
 public:
     explicit FireworkSceneWidget(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *);
+
+    FireworkProperties fireworkProps;
 signals:
 
 public slots:
-    void updateWorld();
     void launchRocket();
     void resetWorld();
     void changeBackground(QString imagePath);

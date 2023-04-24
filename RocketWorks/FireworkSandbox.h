@@ -21,7 +21,6 @@ public:
 public slots:
     void changeBackground(int checked);
 private:
-    FireworkProperties fireworkProps;
     Ui::FireworkSandbox *ui;
 
 };

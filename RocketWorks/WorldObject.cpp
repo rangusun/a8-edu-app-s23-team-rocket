@@ -15,7 +15,7 @@ void WorldObject::setZoom(double zoom)
     WorldObject::zoom = zoom;
 }
 
-WorldObject WorldObject::makeWorldObjectfromCartCoords(string name, double x, double y, double width, double height)
+WorldObject WorldObject::makeWorldObjectFromCartCoords(string name, double x, double y, double width, double height)
 {
     double pixelX = screenWidth/2.0 + x;
     double pixelY = screenHeight/2.0 - y;
@@ -46,7 +46,7 @@ WorldObject WorldObject::makeWorldObjectfromPixelCoords(string name, double x, d
 WorldObject WorldObject::makeWorldObjectFromBox2DCoords(string name, double x, double y, double width, double height)
 {
     double cartX = x * zoom;
-    double cartY = x * zoom;
+    double cartY = y * zoom;
 
     double pixelX = screenWidth/2.0 + cartX;
     double pixelY = screenHeight/2.0 - cartY;
