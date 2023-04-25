@@ -56,6 +56,10 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             &QComboBox::currentTextChanged,
             this,
             [this]() { ui->shellPreview->update(); });
+    connect(ui->shapeDropdown,
+            &QComboBox::currentTextChanged,
+            this,
+            [this]() { ui->shellPreview->update(); });
 }
 
 FireworkSandbox::~FireworkSandbox()

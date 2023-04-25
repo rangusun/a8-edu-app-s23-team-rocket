@@ -95,13 +95,13 @@ void FireworkProperties::setSound(QString sound)
 
 void FireworkProperties::setShape(QString shapeString)
 {
-    if(shapeString == "star")
+    if(shapeString == "Star")
         shape = star;
-    else if (shapeString == "heart")
+    else if (shapeString == "Heart")
         shape = heart;
-    else if (shapeString == "smile")
+    else if (shapeString == "Smile")
         shape = smile;
-    else if (shapeString == "circle")
+    else if (shapeString == "Circle")
         shape = circle;
     else
         shape = circle;
