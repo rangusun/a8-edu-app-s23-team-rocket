@@ -6,7 +6,7 @@
 
 ShellPreviewWidget::ShellPreviewWidget(QWidget *parent)
     : QWidget{parent},
-    background(":/FireworkResources/Resources/paperBackground.png")
+    background(":/ShellPreviewResources/Resources/ShellPreviewBackground.png")
 {
     background = background.scaled(this->width(), this->height());
     setStyleSheet("border: 10px solid white");
@@ -205,7 +205,7 @@ void ShellPreviewWidget::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
 
-    background = QImage(":/FireworkResources/Resources/paperBackground.png");
+    background = QImage(":/ShellPreviewResources/Resources/ShellPreviewBackground.png");
     background = background.scaled(this->width(), this->height());
     update();
 }

@@ -17,4 +17,7 @@
         <file>Resources/OtherIcon.png</file>
         <file>Resources/StarIcon.png</file>
     </qresource>
+    <qresource prefix="/ShellPreviewResources">
+        <file>Resources/ShellPreviewBackground.png</file>
+    </qresource>
 </RCC>
