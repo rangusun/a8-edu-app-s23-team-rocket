@@ -35,7 +35,17 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
         const WorldObject& obj = pair.second;
         if(obj.name.find("particle") != string::npos)
         {
-            painter.setPen(fireworkProps.getParticleColor());
+            QColor fireWorkColor = fireworkProps.getParticleColor();
+
+            int alpha = 255 * (float(particleFadeTimer.first)/float(particleFadeTimer.second));
+
+            fireWorkColor.setAlpha(alpha);
+            painter.setPen(fireWorkColor);
+
+            if (alpha <= 10)
+            {
+                world.removeObject(obj.name);
+            }
         }
         else
         {
@@ -43,6 +53,11 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
         }
 
         painter.drawRect(QRect(obj.drawX, obj.drawY, obj.width, obj.height));
+    }
+
+    if (!(particleFadeTimer.first <= 0))
+    {
+        particleFadeTimer.first -= (particleFadeTimer.second / particleFadeTimer.first * 0.1 * fireworkProps.getShellDiameter());
     }
 
     painter.end();
@@ -77,11 +92,14 @@ void FireworkSceneWidget::explode()
     const double angleIncrement = (2*3.14159265358979323846) / numParticles;
     const int impulseStrength = fireworkProps.getBlastStrength();
 
-    int blastY = world.getObject("shell").cartY + 20;
+    WorldObject shell = world.getObject("shell");
+    int blastY = shell.cartY + 20;
     world.removeObject("shell");
 
-    qDebug()<<blastY;
+    particleFadeTimer = std::pair<int, int>(fireworkProps.getShellDiameter() * 45, fireworkProps.getShellDiameter() * 45);
+    fireworkProps.setBlastCenter(QPoint(width()/2, shell.pixelY));
 
+    qDebug()<<blastY;
 
     for (int i = 0; i < numParticles; i++)
     {
@@ -93,14 +111,13 @@ void FireworkSceneWidget::explode()
         double cosine = cos(i*angleIncrement);
         double sine = sin(i*angleIncrement);
 
-        world.addObject(WorldObject::makeWorldObjectFromCartCoords("particle"+std::to_string(i), cosine * fireworkProps.getBlastStrength(), sine * fireworkProps.getBlastStrength() + blastY, 1, 1));
+        world.addObject(WorldObject::makeWorldObjectFromCartCoords("particle"+std::to_string(i), cosine * (fireworkProps.getBlastStrength() * 0.6), sine * (fireworkProps.getBlastStrength() * 0.6) + blastY, 1, 1));
 
         int x = (int)(impulseStrength * (cos(i * angleIncrement))) + jitterX;
         int y = (int)(impulseStrength * (sin(i * angleIncrement))) + jitterY;
         world.applyForceToObject("particle"+std::to_string(i), 0, 20);
 
         world.applyForceToObject("particle"+std::to_string(i), x, y);
-
     }
 }
 

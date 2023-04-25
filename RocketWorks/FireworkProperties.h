@@ -1,5 +1,6 @@
 #include <QObject>
 #include <QColor>
+#include <QPoint>
 #include "FireworkShapeEnum.h"
 #ifndef FIREWORKPROPERTIES_H
 #define FIREWORKPROPERTIES_H
@@ -14,6 +15,8 @@ public:
     int getShellDiameter();
     QColor getParticleColor();
     QString getSound();
+    QPoint getBlastCenter();
+    void setBlastCenter(QPoint blastCenter);
     FireworkShape getShape();
 
 public slots:
@@ -27,6 +30,7 @@ private:
     int shellDiameter;
     QString sound;
     QColor particleColor;
+    QPoint blastCenter;
 };
 
 #endif // FIREWORKPROPERTIES_H

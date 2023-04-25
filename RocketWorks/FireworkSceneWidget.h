@@ -30,6 +30,7 @@ private:
     QImage background;
     bool rocketMoving = false;
     bool reset = false;
+    std::pair<int, int> particleFadeTimer;
 
     B2DWorldWrapper world;
 

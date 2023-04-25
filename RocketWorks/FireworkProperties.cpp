@@ -18,7 +18,6 @@ int FireworkProperties::getBlastStrength()
     return shellDiameter; //TODO: Tweak blast strength value so that it looks good onscreen
 }
 
-
 QColor FireworkProperties::getParticleColor()
 {
     return particleColor;
@@ -27,6 +26,16 @@ QColor FireworkProperties::getParticleColor()
 QString FireworkProperties::getSound()
 {
     return sound;
+}
+
+QPoint FireworkProperties::getBlastCenter()
+{
+    return blastCenter;
+}
+
+void FireworkProperties::setBlastCenter(QPoint blastCenter)
+{
+    this->blastCenter = blastCenter;
 }
 
 FireworkShape FireworkProperties::getShape()
@@ -66,7 +75,7 @@ void FireworkProperties::setColor(QString color)
     }
     else if(color == "Copper Salts")
     {
-        particleColor = QColor("blue");
+        particleColor = QColor::fromRgb(7, 207, 224);
     }
     else if(color == "Strontium + Copper Compounds")
     {
