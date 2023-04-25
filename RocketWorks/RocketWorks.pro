@@ -59,6 +59,7 @@ SOURCES += \
     FireworkProperties.cpp \
     FireworkSandbox.cpp \
     FireworkSceneWidget.cpp \
+    ShellPreviewWidget.cpp \
     TutorialDialog.cpp \
     TutorialPage.cpp \
     WorldObject.cpp \
@@ -118,6 +119,7 @@ HEADERS += \
     FireworkSandbox.h \
     FireworkSceneWidget.h \
     FireworkShapeEnum.h \
+    ShellPreviewWidget.h \
     TutorialComponents.h \
     TutorialDialog.h \
     TutorialPage.h \

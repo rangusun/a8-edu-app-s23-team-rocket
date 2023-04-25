@@ -22,7 +22,6 @@ public slots:
     void changeBackground(int checked);
 private:
     Ui::FireworkSandbox *ui;
-
 };
 
 #endif // FIREWORKSANDBOX_H

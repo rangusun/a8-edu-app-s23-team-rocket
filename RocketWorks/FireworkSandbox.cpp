@@ -8,7 +8,7 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
+    // Set up fireworks scene widget ---------------------
     connect(ui->launchButton,
             &QPushButton::clicked,
             ui->fireworkScene,
@@ -43,6 +43,19 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             &QComboBox::currentTextChanged,
             &ui->fireworkScene->fireworkProps,
             &FireworkProperties::setShape);
+
+    // Set up shell preview --------------------------------
+    ui->shellPreview->setFireworkProperties(&ui->fireworkScene->fireworkProps);
+    ui->shellPreview->update();
+
+    connect(ui->shellDiameterSlider,
+            &QSlider::valueChanged,
+            this,
+            [this]() { ui->shellPreview->update(); });
+    connect(ui->colorsDropdown,
+            &QComboBox::currentTextChanged,
+            this,
+            [this]() { ui->shellPreview->update(); });
 }
 
 FireworkSandbox::~FireworkSandbox()

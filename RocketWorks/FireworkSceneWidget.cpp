@@ -1,9 +1,11 @@
 #include "FireworkSceneWidget.h"
+#include "WorldObject.h"
 #include <QPainter>
 #include <QDebug>
 
 
-FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) : QWidget(parent),
+FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) :
+    QWidget(parent),
     timer(this),
     image(":/FireworkResources/Resources/Firework.png"),
     background(":/FireworkResources/Resources/nightBackground.png"),

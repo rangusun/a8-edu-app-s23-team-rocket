@@ -263,28 +263,38 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="shellPreview">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
+      <widget class="QFrame" name="frame">
        <property name="minimumSize">
         <size>
-         <width>132</width>
-         <height>132</height>
+         <width>135</width>
+         <height>135</height>
         </size>
        </property>
        <property name="frameShape">
-        <enum>QFrame::Box</enum>
+        <enum>QFrame::StyledPanel</enum>
        </property>
-       <property name="text">
-        <string>Shell Preview</string>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
        </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
+       <property name="lineWidth">
+        <number>3</number>
        </property>
+       <widget class="ShellPreviewWidget" name="shellPreview" native="true">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>261</width>
+          <height>132</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>135</width>
+          <height>132</height>
+         </size>
+        </property>
+       </widget>
       </widget>
      </item>
      <item>
@@ -373,6 +383,12 @@
    <class>FireworkSceneWidget</class>
    <extends>QWidget</extends>
    <header>FireworkSceneWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ShellPreviewWidget</class>
+   <extends>QWidget</extends>
+   <header>ShellPreviewWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

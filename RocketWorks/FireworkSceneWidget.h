@@ -5,7 +5,6 @@
 #include <Box2D/Box2D.h>
 #include <QTimer>
 #include "B2DWorldWrapper.h"
-#include "WorldObject.h"
 #include "FireworkProperties.h"
 
 class FireworkSceneWidget : public QWidget
@@ -16,6 +15,7 @@ public:
     void paintEvent(QPaintEvent *);
 
     FireworkProperties fireworkProps;
+
 signals:
 
 public slots:

@@ -8,7 +8,7 @@ class FireworkProperties : public QObject
 {
     Q_OBJECT
 public:
-    FireworkProperties();
+    explicit FireworkProperties();
     int getFlightDuration();
     int getBlastStrength();
     int getShellDiameter();
@@ -21,6 +21,7 @@ public slots:
     void setColor(QString color);
     void setSound(QString sound);
     void setShape(QString shape);
+
 private:
     FireworkShape shape;
     int shellDiameter;

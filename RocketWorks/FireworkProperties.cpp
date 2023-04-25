@@ -1,4 +1,3 @@
-
 #include "FireworkProperties.h"
 
 FireworkProperties::FireworkProperties()
