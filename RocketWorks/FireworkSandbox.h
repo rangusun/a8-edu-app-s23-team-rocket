@@ -20,6 +20,9 @@ public:
 
 public slots:
     void changeBackground(int checked);
+    void disableButtons();
+    void enableButtons();
+
 private:
     Ui::FireworkSandbox *ui;
 };

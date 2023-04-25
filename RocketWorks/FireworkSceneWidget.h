@@ -17,10 +17,10 @@ public:
     FireworkProperties fireworkProps;
 
 signals:
+    void enableButtons();
 
 public slots:
     void launchRocket();
-    void resetWorld();
     void changeBackground(QString imagePath);
     void explode();
 

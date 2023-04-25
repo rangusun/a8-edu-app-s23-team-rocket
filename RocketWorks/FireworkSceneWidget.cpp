@@ -27,9 +27,6 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
     // Draw background
     painter.drawImage(0, 0, background);
 
-    //qDebug() << "Ground width:" << ground.width << "Ground height:" << ground.height;
-    //qDebug() << "Ground drawX:" << ground.drawX << "Ground drawY:" << ground.drawY;
-
     for (auto const &pair: world.getAllObjects())
     {
         const WorldObject& obj = pair.second;
@@ -45,6 +42,7 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
             if (alpha <= 10)
             {
                 world.removeObject(obj.name);
+                emit enableButtons();
             }
         }
         else
@@ -72,10 +70,6 @@ void FireworkSceneWidget::launchRocket()
     world.addObject(WorldObject::makeWorldObjectFromCartCoords("shell", 0, shellY, fireworkProps.getShellDiameter(), fireworkProps.getShellDiameter()));
     world.applyForceToObject("shell", 0, baseLaunchPower * fireworkProps.getShellDiameter() * fireworkProps.getShellDiameter());
     QTimer::singleShot(fireworkProps.getFlightDuration(), this, &FireworkSceneWidget::explode);
-}
-
-void FireworkSceneWidget::resetWorld()
-{
 }
 
 void FireworkSceneWidget::changeBackground(QString imagePath)
