@@ -39,6 +39,8 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             &ui->fireworkScene->fireworkProps,
             &FireworkProperties::setShape);
 
+    ui->fireworkScene->fireworkProps.setShellDiameter(ui->shellDiameterSlider->value());
+
     // Set up buttons to disable after firework is launched
     connect(ui->launchButton,
             &QPushButton::clicked,

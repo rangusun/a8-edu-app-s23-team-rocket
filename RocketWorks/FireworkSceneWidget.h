@@ -34,6 +34,13 @@ private:
 
     B2DWorldWrapper world;
 
+    void explodeCircle(int numParticles, int impulseStrength, int yOffset);
+    void explodeLineBetweenPoints(QPoint point1, QPoint point2, int numParticles, int impulseStrength,
+                                  int yOffset, double xRandVariance, double yRandVariance, int &particleNum);
+    void explodeHeart(int numParticles, int impulseStrength, int yOffset);
+    void explodeStar(int numParticles, int impulseStrength, int yOffset);
+    void explodeSmiley(int numParticles, int impulseStrength, int yOffset);
+
 protected:
     void resizeEvent(QResizeEvent* event);
 };
