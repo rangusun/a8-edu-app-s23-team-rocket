@@ -6,6 +6,7 @@
 #include <QTimer>
 #include "B2DWorldWrapper.h"
 #include "FireworkProperties.h"
+#include <QSoundEffect>
 
 class FireworkSceneWidget : public QWidget
 {
@@ -31,6 +32,8 @@ private:
     bool rocketMoving = false;
     bool reset = false;
     std::pair<int, int> particleFadeTimer;
+    QSoundEffect woosh, whistle, bang, crackle;
+
 
     B2DWorldWrapper world;
 

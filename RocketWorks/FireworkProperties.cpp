@@ -5,7 +5,7 @@ FireworkProperties::FireworkProperties()
     shape = circle;
     shellDiameter = 3;
     particleColor = QColor("white");
-    sound = "unimplemented";
+    sound = "Crackle";
 }
 
 int FireworkProperties::getFlightDuration()
@@ -100,7 +100,7 @@ void FireworkProperties::setColor(QString color)
 
 void FireworkProperties::setSound(QString sound)
 {
-    sound = "unimplemented";
+    this->sound = sound;
 }
 
 void FireworkProperties::setShape(QString shapeString)

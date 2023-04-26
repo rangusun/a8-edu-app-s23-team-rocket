@@ -13,6 +13,12 @@ FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) :
 {
     background = background.scaled(this->width(), this->height());
 
+    woosh.setSource(QUrl::fromLocalFile(":/FireworkResources/Resources/wavwoosh.wav"));
+    whistle.setSource(QUrl::fromLocalFile(":/FireworkResources/Resources/wavwhistle.wav"));
+    bang.setSource(QUrl::fromLocalFile(":/FireworkResources/Resources/wavbang.wav"));
+    crackle.setSource(QUrl::fromLocalFile(":/FireworkResources/Resources/wavcrackle.wav"));
+
+
     connect(&world,
             &B2DWorldWrapper::worldUpdated,
             this,
@@ -64,6 +70,20 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
 
 void FireworkSceneWidget::launchRocket()
 {
+    //sound
+    woosh.stop();
+    whistle.stop();
+    crackle.stop();
+    bang.stop();
+    if (fireworkProps.getSound() == QString("Whistle"))
+    {
+        whistle.play();
+    }
+    else
+    {
+        woosh.play();
+    }
+    //end sound
     int baseLaunchPower = 35;
     WorldObject ground = world.getObject("ground");
     double shellY = ground.cartY  + ground.height/2.0 + fireworkProps.getShellDiameter()/2.0;
@@ -71,6 +91,7 @@ void FireworkSceneWidget::launchRocket()
     world.addObject(WorldObject::makeWorldObjectFromCartCoords("shell", 0, shellY, fireworkProps.getShellDiameter(), fireworkProps.getShellDiameter()));
     world.applyForceToObject("shell", 0, baseLaunchPower * fireworkProps.getShellDiameter() * fireworkProps.getShellDiameter());
     QTimer::singleShot(fireworkProps.getFlightDuration(), this, &FireworkSceneWidget::explode);
+    //TODO:: ADD CORRECT LAUNCH SFX
 }
 
 void FireworkSceneWidget::changeBackground(QString imagePath)
@@ -83,6 +104,23 @@ void FireworkSceneWidget::changeBackground(QString imagePath)
 void FireworkSceneWidget::explode()
 {
     qDebug()<<"boom!";
+
+    //sound effects
+    woosh.stop();
+    whistle.stop();
+    crackle.stop();
+    bang.stop();
+    //A switch statement would probably be better, but they are not compatible with QString.
+    if (fireworkProps.getSound() == QString("Crackle"))
+    {
+        crackle.play();
+    }
+    else
+    {
+        bang.play();
+    }
+
+    //end sound stuff
     const int impulseStrength = fireworkProps.getBlastStrength();
     const int numParticles = impulseStrength * 15 - 24;
 

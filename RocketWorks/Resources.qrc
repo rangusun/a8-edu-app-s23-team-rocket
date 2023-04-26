@@ -9,6 +9,10 @@
         <file>Resources/StarIcon.png</file>
         <file>Resources/Tube.png</file>
         <file>Resources/redBall.png</file>
+        <file>Resources/wavbang.wav</file>
+        <file>Resources/wavcrackle.wav</file>
+        <file>Resources/wavwhistle.wav</file>
+        <file>Resources/wavwoosh.wav</file>
     </qresource>
     <qresource prefix="/TutorialResources">
         <file>Resources/mainrocketdiagram.png</file>
