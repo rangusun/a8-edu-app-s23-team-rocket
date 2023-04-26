@@ -359,7 +359,7 @@ void FireworkSceneWidget::resizeEvent(QResizeEvent *event)
 
     changeBackground(":/FireworkResources/Resources/nightBackground.png");
 
-    world.initializeWorld(width(), height(), 10.0);
+    world.initializeWorld(width(), height(), 12.0);
 
     //world.addObject(WorldObject::makeWorldObjectFromCartCoords("firework", 0, -width()/2, 20, 30));
 

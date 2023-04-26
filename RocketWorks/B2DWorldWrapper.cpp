@@ -1,7 +1,7 @@
 #include "B2DWorldWrapper.h"
 #include <QDebug>
 
-B2DWorldWrapper::B2DWorldWrapper() : world(b2Vec2(0.0f, -10.0f)), screenWidth(100.0), screenHeight(100.0), zoom(1.0) {}
+B2DWorldWrapper::B2DWorldWrapper() : world(b2Vec2(0.0f, -28.0f)), screenWidth(100.0), screenHeight(100.0), zoom(1.0) {}
 
 void B2DWorldWrapper::initializeWorld(double screenWidth, double screenHeight, double zoom)
 {
