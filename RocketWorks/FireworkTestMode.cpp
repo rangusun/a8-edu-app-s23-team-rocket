@@ -16,6 +16,8 @@ FireworkTestMode::FireworkTestMode(QWidget *parent) :
             &testModeDialog,
             &TestModeDialog::displaySpecificationsDialog);
 
+    // Inform the Firework sandbox window to show the stars as grey in the shell preview
+    ui->widget->switchModes("test");
 }
 
 FireworkTestMode::~FireworkTestMode()

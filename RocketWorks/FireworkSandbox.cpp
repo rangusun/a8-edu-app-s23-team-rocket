@@ -41,7 +41,7 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
 
     ui->fireworkScene->fireworkProps.setShellDiameter(ui->shellDiameterSlider->value());
 
-    // Set up buttons to disable after firework is launched
+    // Set up buttons to disable after firework is launched --------------------
     connect(ui->launchButton,
             &QPushButton::clicked,
             this,
@@ -51,6 +51,11 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             &FireworkSceneWidget::enableButtons,
             this,
             &FireworkSandbox::enableButtons);
+
+    connect(ui->launchButton,
+            &QPushButton::clicked,
+            this,
+            [this]() { emit launch(ui->fireworkScene->fireworkProps); });
 
     // Set up shell preview --------------------------------
     ui->shellPreview->setFireworkProperties(&ui->fireworkScene->fireworkProps);
@@ -103,5 +108,17 @@ void FireworkSandbox::enableButtons()
     ui->soundsDropdown->setEnabled(true);
     ui->shapeDropdown->setEnabled(true);
     ui->launchButton->setEnabled(true);
+}
+
+void FireworkSandbox::switchModes(QString mode)
+{
+    if (mode == "test")
+    {
+        ui->shellPreview->showStarColor = false;
+    }
+    else
+    {
+        ui->shellPreview->showStarColor = true;
+    }
 }
 

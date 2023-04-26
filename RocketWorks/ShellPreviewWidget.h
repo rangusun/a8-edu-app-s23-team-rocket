@@ -13,6 +13,8 @@ public:
 
     void setFireworkProperties(FireworkProperties *fireworkProps);
 
+    bool showStarColor;
+
 private:
     QImage background;
 

@@ -18,10 +18,14 @@ public:
     explicit FireworkSandbox(QWidget *parent = nullptr);
     ~FireworkSandbox();
 
+signals:
+    void launch(FireworkProperties &fireworkProps);
+
 public slots:
     void changeBackground(int checked);
     void disableButtons();
     void enableButtons();
+    void switchModes(QString mode);
 
 private:
     Ui::FireworkSandbox *ui;

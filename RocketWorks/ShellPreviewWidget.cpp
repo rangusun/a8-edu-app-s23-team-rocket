@@ -6,6 +6,7 @@
 
 ShellPreviewWidget::ShellPreviewWidget(QWidget *parent)
     : QWidget{parent},
+    showStarColor(true),
     background(":/ShellPreviewResources/Resources/ShellPreviewBackground.png")
 {
     background = background.scaled(this->width(), this->height());
@@ -31,11 +32,22 @@ void ShellPreviewWidget::paintEvent(QPaintEvent *)
     painter.drawEllipse(screenCenterX - shellDiameter/2.0, screenCenterY - shellDiameter/2.0, shellDiameter, shellDiameter);
 
     // Draw stars in the selected shape
-    QColor starColor = fireworkProps->getParticleColor();
     float starDiameter = 6;
     int numStars = (1.8 * shellDiameter) / starDiameter;
-    painter.setPen(starColor);
-    painter.setBrush(starColor);
+
+    if (showStarColor)
+    {
+        QColor starColor = fireworkProps->getParticleColor();
+        painter.setPen(starColor);
+        painter.setBrush(starColor);
+    }
+    // If star colors are not enabled, make stars grey like they would be irl
+    else
+    {
+        QColor starColor(99, 99, 99);
+        painter.setPen(starColor);
+        painter.setBrush(starColor);
+    }
 
     FireworkShape shape = fireworkProps->getShape();
 
