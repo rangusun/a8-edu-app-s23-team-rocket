@@ -3,7 +3,8 @@
 
 #include <QMainWindow>
 #include "TutorialPage.h"
-#include "FireworkSandbox.h"
+#include "FireworkSandboxMode.h"
+#include "FireworkTestMode.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,10 +22,12 @@ private:
     Ui::MainWindow *ui;
 
     TutorialPage tutorialPage;
-    FireworkSandbox sandboxPage;
+    FireworkSandboxMode sandboxPage;
+    FireworkTestMode testPage;
 
 public slots:
     void switchToSandboxPage();
+    void switchToTestModePage();
 
 };
 #endif // MAINWINDOW_H

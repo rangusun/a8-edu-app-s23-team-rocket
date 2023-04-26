@@ -58,8 +58,12 @@ SOURCES += \
     Box2D/Rope/b2Rope.cpp \
     FireworkProperties.cpp \
     FireworkSandbox.cpp \
+    FireworkSandboxMode.cpp \
     FireworkSceneWidget.cpp \
+    FireworkTestMode.cpp \
     ShellPreviewWidget.cpp \
+    TestModeDialog.cpp \
+    TestModeModel.cpp \
     TutorialDialog.cpp \
     TutorialPage.cpp \
     WorldObject.cpp \
@@ -117,9 +121,13 @@ HEADERS += \
     Box2D/Rope/b2Rope.h \
     FireworkProperties.h \
     FireworkSandbox.h \
+    FireworkSandboxMode.h \
     FireworkSceneWidget.h \
     FireworkShapeEnum.h \
+    FireworkTestMode.h \
     ShellPreviewWidget.h \
+    TestModeDialog.h \
+    TestModeModel.h \
     TutorialComponents.h \
     TutorialDialog.h \
     TutorialPage.h \
@@ -128,6 +136,9 @@ HEADERS += \
 
 FORMS += \
     FireworkSandbox.ui \
+    FireworkSandboxMode.ui \
+    FireworkTestMode.ui \
+    TestModeDialog.ui \
     TutorialDialog.ui \
     TutorialPage.ui \
     mainwindow.ui
