@@ -55,38 +55,39 @@ void FireworkProperties::setShellDiameter(int diameter)
 
 void FireworkProperties::setColor(QString color)
 {
-    if(color == "Strontium Salts")
+    if(color == "Strontium Salts" || color == "red")
     {
         particleColor = QColor("red");
     }
-    else if(color == "Calcium Salts")
+    else if(color == "Calcium Salts" || color == "orange")
     {
         // Orange
         particleColor = QColor::fromRgb(255, 132, 0);
     }
-    else if(color == "Sodium Salts")
+    else if(color == "Sodium Salts" || color == "yellow")
     {
         particleColor = QColor("yellow");
     }
-    else if(color == "Barium Salts")
+    else if(color == "Barium Salts" || color == "green")
     {
         // Green
         particleColor = QColor::fromRgb(33, 255, 92);
     }
-    else if(color == "Copper Salts")
+    else if(color == "Copper Salts" || color == "blue")
     {
+        // Blue
         particleColor = QColor::fromRgb(7, 207, 224);
     }
-    else if(color == "Strontium + Copper Compounds")
+    else if(color == "Strontium + Copper Compounds" || color == "purple")
     {
         // Purple
         particleColor = QColor::fromRgb(170, 96, 219);
     }
-    else if(color == "Aluminum")
+    else if(color == "Aluminum" || color == "white")
     {
         particleColor = QColor("white");
     }
-    else if(color == "Lithium")
+    else if(color == "Lithium" || color == "pink")
     {
         // Pink
         particleColor = QColor::fromRgb(255, 135, 211);
