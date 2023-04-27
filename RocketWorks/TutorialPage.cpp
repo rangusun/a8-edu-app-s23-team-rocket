@@ -12,7 +12,7 @@ TutorialPage::TutorialPage(QWidget *parent) :
     dialogsVisited[blastCharge] = false;
     dialogsVisited[liftCharge] = false;
     dialogsVisited[other] = false;
-
+    // Will set visited flags when component dialog box has been opened --------------------------------------------------
     connect(ui->starButton,
             &QPushButton::clicked,
             this,
