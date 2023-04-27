@@ -1,5 +1,5 @@
-#ifndef WINLOSEDIALOG_H
-#define WINLOSEDIALOG_H
+#ifndef WINDIALOG_H
+#define WINDIALOG_H
 
 #include <QDialog>
 
@@ -23,4 +23,4 @@ private:
     Ui::WinLoseDialog *ui;
 };
 
-#endif // WINLOSEDIALOG_H
+#endif // WINDIALOG_H

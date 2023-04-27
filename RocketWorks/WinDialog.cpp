@@ -1,5 +1,5 @@
-#include "WinLoseDialog.h"
-#include "ui_winlosedialog.h"
+#include "WinDialog.h"
+#include "ui_WinDialog.h"
 
 WinLoseDialog::WinLoseDialog(QWidget *parent) :
     QDialog(parent),
