@@ -34,11 +34,11 @@ FireworkTestMode::FireworkTestMode(QWidget *parent) :
     connect(&winLoseDialog,
             &WinLoseDialog::newTest,
             this,
-            FireworkTestMode::startTestMode);
+            &FireworkTestMode::startTestMode);
     connect(&winLoseDialog,
             &WinLoseDialog::backToSandbox,
             this,
-            FireworkTestMode::switchToSandbox);
+            &FireworkTestMode::switchToSandbox);
     connect(&model,
             &TestModeModel::specificationsGenerated,
             this,
@@ -52,7 +52,7 @@ FireworkTestMode::FireworkTestMode(QWidget *parent) :
             &model,
             &TestModeModel::resetWinStreak);
     connect(&testModeDialog,
-            TestModeDialog::enableButtons,
+            &TestModeDialog::enableButtons,
             ui->testModeSandbox,
             &FireworkSandbox::enableButtons);
 

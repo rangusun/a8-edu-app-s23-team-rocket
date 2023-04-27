@@ -10,7 +10,7 @@ TestModeDialog::TestModeDialog(QWidget *parent) :
     connect(ui->sandboxButton,
             &QPushButton::clicked,
             this,
-            TestModeDialog::switchToSandbox);
+            &TestModeDialog::switchToSandbox);
     connect(ui->buttonBox,
             &QDialogButtonBox::clicked,
             this,
