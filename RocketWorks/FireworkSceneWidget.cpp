@@ -56,12 +56,21 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
                     emit enableButtons();
             }
         }
+        else if (obj.name.find("ground") != string::npos)
+        {
+            painter.setPen(QColor(0, 128, 19));
+        }
+        else if (obj.name.find("shell") != string::npos)
+        {
+            painter.setPen(QColor(255, 61, 126));
+        }
         else
         {
-            painter.setPen(QColor(255, 0, 0));
+            painter.setPen(QColor(255, 61, 126));
         }
 
-        painter.drawRect(QRect(obj.drawX, obj.drawY, obj.width, obj.height));
+
+        painter.drawEllipse(QRect(obj.drawX, obj.drawY, obj.width, obj.height));
     }
 
     if (!(particleFadeTimer.first <= 0))
@@ -95,7 +104,6 @@ void FireworkSceneWidget::launchRocket()
     world.addObject(WorldObject::makeWorldObjectFromCartCoords("shell", 0, shellY, fireworkProps.getShellDiameter(), fireworkProps.getShellDiameter()));
     world.applyForceToObject("shell", 0, baseLaunchPower * fireworkProps.getShellDiameter() * fireworkProps.getShellDiameter());
     QTimer::singleShot(fireworkProps.getFlightDuration(), this, &FireworkSceneWidget::explode);
-    //TODO:: ADD CORRECT LAUNCH SFX
 }
 
 void FireworkSceneWidget::changeBackground(QString imagePath)
@@ -138,8 +146,6 @@ void FireworkSceneWidget::resizeEvent(QResizeEvent *event)
     changeBackground(":/FireworkResources/Resources/nightBackground.png");
 
     world.initializeWorld(width(), height(), 12.0);
-
-    //world.addObject(WorldObject::makeWorldObjectFromCartCoords("firework", 0, -width()/2, 20, 30));
 
     world.startWorldUpdates();
 }
