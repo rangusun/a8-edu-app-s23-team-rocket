@@ -46,8 +46,8 @@ FireworkTestMode::FireworkTestMode(QWidget *parent) :
             &QPushButton::clicked,
             this,
             &FireworkTestMode::startTestMode);
-    connect(&winLoseDialog,
-            &WinLoseDialog::backToSandbox,
+    connect(&winDialog,
+            &WinDialog::backToSandbox,
             this,
             &FireworkTestMode::switchToSandbox);
     connect(&model,
@@ -114,7 +114,7 @@ void FireworkTestMode::updateOrdersFulfilled(int ordersFulfilled)
 
     if (ordersFulfilled == 3)
     {
-        winLoseDialog.show();
+        winDialog.show();
     }
 }
 

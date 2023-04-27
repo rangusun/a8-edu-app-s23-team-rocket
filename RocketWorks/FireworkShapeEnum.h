@@ -3,7 +3,7 @@
  *
  *  @brief This header file defines an enumeration of firework shapes, including circle, heart, star, and smile.
  *
- *  By
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
  *  for CS 3505 in Spring 2023
 */
 #ifndef FIREWORKSHAPEENUM_H
