@@ -36,6 +36,10 @@ FireworkTestMode::FireworkTestMode(QWidget *parent) :
             &FireworkTestMode::displayOrderCorrect);
     connect(&model,
             &TestModeModel::userWinOrLoss,
+            this,
+            [this]() { ui->sandboxButton->setEnabled(true); });
+    connect(&model,
+            &TestModeModel::userWinOrLoss,
             ui->testModeSandbox,
             &FireworkSandbox::disableButtons);
     connect(ui->newOrderButton,
@@ -89,7 +93,7 @@ void FireworkTestMode::startTestMode()
 {
     model.generateFireworkSpecifications();
     ui->newOrderButton->setEnabled(false);
-
+    ui->sandboxButton->setEnabled(false);
     ui->orderResultWindow->setText("");
 }
 
