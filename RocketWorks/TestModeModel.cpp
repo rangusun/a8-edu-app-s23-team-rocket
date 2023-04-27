@@ -28,10 +28,33 @@ void TestModeModel::generateFireworkSpecifications()
     fireworkSpec.setSound(soundSpec);
 
     // Randomly generate a firework shell diameter specification.
-    randomSpec = rand() & 4;
-    shellDiameterSpec = shellDiameterOptions[randomSpec];
+    shellDiameterSpec = rand() % (shellDiameterMax - shellDiameterMin) + shellDiameterMin ;
     fireworkSpec.setShellDiameter(shellDiameterSpec);
 
 
     emit specificationsGenerated(shapeSpec, colorSpec, soundSpec, shellDiameterSpec);
+}
+
+void TestModeModel::checkUserSelections(FireworkProperties& userSelections)
+{
+    if(userSelections == fireworkSpec)
+    {
+        emit userWinOrLoss(true);
+
+        winStreak++;
+        emit winStreakChanged(winStreak);
+    }
+    else
+    {
+        emit userWinOrLoss(false);
+
+        winStreak = 0;
+        emit winStreakChanged(winStreak);
+    }
+}
+
+void TestModeModel::resetWinStreak()
+{
+    winStreak = 0;
+    emit winStreakChanged(winStreak);
 }

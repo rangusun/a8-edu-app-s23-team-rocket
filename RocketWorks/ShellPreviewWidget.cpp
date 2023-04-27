@@ -204,11 +204,7 @@ void ShellPreviewWidget::drawStarSmiley(QPainter &painter, float shellDiameter, 
 
 void ShellPreviewWidget::setFireworkProperties(FireworkProperties *fireworkProps)
 {
-    qDebug() << "Old firework props:" << this->fireworkProps;
-
     this->fireworkProps = fireworkProps;
-
-    qDebug() << "New firework props:" << this->fireworkProps;
 
     // Connections to fireworkProps go here
 }

@@ -7,17 +7,57 @@ FireworkTestMode::FireworkTestMode(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->sandboxModeButton,
-            &QPushButton::clicked,
-            this,
-            &FireworkTestMode::switchToSandbox);
     connect(&model,
             &TestModeModel::specificationsGenerated,
             &testModeDialog,
             &TestModeDialog::displaySpecificationsDialog);
+    connect(&model,
+            &TestModeModel::specificationsGenerated,
+            ui->testModeSandbox,
+            &FireworkSandbox::disableButtons);
+    connect(&testModeDialog,
+            &TestModeDialog::changeToSandbox,
+            this,
+            &FireworkTestMode::switchToSandbox);
+    connect(ui->testModeSandbox,
+            &FireworkSandbox::launch,
+            &model,
+            &TestModeModel::checkUserSelections);
+    connect(&model,
+            &TestModeModel::userWinOrLoss,
+            &winLoseDialog,
+            &WinLoseDialog::displayUserWinOrLoss);
+    connect(&model,
+            &TestModeModel::userWinOrLoss,
+            ui->testModeSandbox,
+            &FireworkSandbox::disableButtons);
+    connect(&winLoseDialog,
+            &WinLoseDialog::newTest,
+            this,
+            FireworkTestMode::startTestMode);
+    connect(&winLoseDialog,
+            &WinLoseDialog::backToSandbox,
+            this,
+            FireworkTestMode::switchToSandbox);
+    connect(&model,
+            &TestModeModel::specificationsGenerated,
+            this,
+            &FireworkTestMode::listSpecifications);
+    connect(&model,
+            &TestModeModel::winStreakChanged,
+            this,
+            [this](int streakCount){ui->winStreakLabel->setText("Win Streak: " + QString::number(streakCount));});
+    connect(this,
+            &FireworkTestMode::changeToSandbox,
+            &model,
+            &TestModeModel::resetWinStreak);
+    connect(&testModeDialog,
+            TestModeDialog::enableButtons,
+            ui->testModeSandbox,
+            &FireworkSandbox::enableButtons);
 
     // Inform the Firework sandbox window to show the stars as grey in the shell preview
-    ui->widget->switchModes("test");
+    ui->testModeSandbox->switchModes("test");
 }
 
 FireworkTestMode::~FireworkTestMode()
@@ -33,4 +73,13 @@ void FireworkTestMode::switchToSandbox()
 void FireworkTestMode::startTestMode()
 {
     model.generateFireworkSpecifications();
+}
+
+void FireworkTestMode::listSpecifications(QString shapeSpec, QString colorSpec, QString soundSpec, int shellDiameterSpec)
+{
+    ui->specsLabel->setText("Specifications:\n- " +
+                            colorSpec +
+                             "\n- " + QString::number(shellDiameterSpec) + " in." +
+                             "\n- " + shapeSpec +
+                             "\n- " + soundSpec);
 }

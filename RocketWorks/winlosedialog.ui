@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TestModeDialog</class>
- <widget class="QDialog" name="TestModeDialog">
+ <class>WinLoseDialog</class>
+ <widget class="QDialog" name="WinLoseDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -29,44 +29,50 @@
     <set>QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QLabel" name="introLabel">
+  <widget class="QPushButton" name="sandBoxButton">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>381</width>
-     <height>91</height>
+     <x>20</x>
+     <y>240</y>
+     <width>141</width>
+     <height>31</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Arial</family>
-     <bold>true</bold>
-    </font>
-   </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;You are in TESTING MODE! Here you can test what you have learned so far! Try to fulfill as many client orders as you can by making fireworks as close to their specifications as possible.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Your current client wants a firework with the following specifications:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="textFormat">
-    <enum>Qt::RichText</enum>
-   </property>
-   <property name="wordWrap">
-    <bool>true</bool>
+    <string>Go back to Sandbox</string>
    </property>
   </widget>
-  <widget class="QLabel" name="specificationsLabel">
+  <widget class="QLabel" name="titleLabel">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>120</y>
-     <width>361</width>
-     <height>111</height>
+     <x>110</x>
+     <y>20</y>
+     <width>181</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Comic Sans MS</family>
+     <pointsize>14</pointsize>
+     <bold>true</bold>
     </font>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="bodyLabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>331</width>
+     <height>121</height>
+    </rect>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -75,26 +81,13 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="sandboxButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>240</y>
-     <width>121</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Go back to Sandbox</string>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>TestModeDialog</receiver>
+   <receiver>WinLoseDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -110,7 +103,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>TestModeDialog</receiver>
+   <receiver>WinLoseDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

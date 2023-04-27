@@ -111,14 +111,14 @@ void FireworkSceneWidget::explode()
     crackle.stop();
     bang.stop();
     //A switch statement would probably be better, but they are not compatible with QString.
-    if (fireworkProps.getSound() == QString("Crackle"))
+    /*if (fireworkProps.getSound() == QString("Crackle"))
     {
         crackle.play();
     }
     else
     {
         bang.play();
-    }
+    }*/
 
     //end sound stuff
     const int impulseStrength = fireworkProps.getBlastStrength();

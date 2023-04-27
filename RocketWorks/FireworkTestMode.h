@@ -4,6 +4,8 @@
 #include <QWidget>
 #include "TestModeModel.h"
 #include "TestModeDialog.h"
+#include "WinLoseDialog.h"
+#include <QDialogButtonBox>
 
 namespace Ui {
 class FireworkTestMode;
@@ -23,6 +25,7 @@ private:
     TestModeModel model;
 
     TestModeDialog testModeDialog;
+    WinLoseDialog winLoseDialog;
 
 signals:
     void changeToSandbox();
@@ -32,6 +35,7 @@ public slots:
 
 private slots:
     void switchToSandbox();
+    void listSpecifications(QString shapeSpec, QString colorSpec, QString soundSpec, int shellDiameterSpec);
 };
 
 #endif // FIREWORKTESTMODE_H

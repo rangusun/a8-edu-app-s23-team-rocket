@@ -18,6 +18,8 @@ public:
     QPoint getBlastCenter();
     void setBlastCenter(QPoint blastCenter);
     FireworkShape getShape();
+    bool operator==(const FireworkProperties& other);
+    bool operator!=(const FireworkProperties& other);
 
 public slots:
     void setShellDiameter(int diameter);

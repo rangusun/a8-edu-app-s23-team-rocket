@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>825</width>
-    <height>675</height>
+    <height>693</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,27 +19,56 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="FireworkSandbox" name="widget" native="true">
+  <widget class="FireworkSandbox" name="testModeSandbox" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
+     <x>0</x>
+     <y>0</y>
      <width>825</width>
      <height>608</height>
     </rect>
    </property>
+   <widget class="QLabel" name="specsLabel">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>20</y>
+      <width>111</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Comic Sans MS</family>
+      <pointsize>8</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(224, 224, 224);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignHCenter|Qt::AlignTop</set>
+    </property>
+   </widget>
   </widget>
-  <widget class="QPushButton" name="sandboxModeButton">
+  <widget class="QLabel" name="winStreakLabel">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>610</y>
-     <width>171</width>
-     <height>31</height>
+     <x>380</x>
+     <y>640</y>
+     <width>391</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Go to Sandbox</string>
+    <string>Win Streak: 0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

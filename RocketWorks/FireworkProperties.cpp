@@ -117,4 +117,22 @@ void FireworkProperties::setShape(QString shapeString)
         shape = circle;
 }
 
+bool FireworkProperties::operator==(const FireworkProperties& other)
+{
+    if(shape != other.shape)
+        return false;
+    if(particleColor != other.particleColor)
+        return false;
+    if(shellDiameter != other.shellDiameter)
+        return false;
+    if(sound != other.sound)
+        return false;
+    return true;
+}
+
+
+bool FireworkProperties::operator!=(const FireworkProperties& other)
+{
+    return !(*this == other);
+}
 

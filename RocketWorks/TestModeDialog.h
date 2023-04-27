@@ -2,6 +2,7 @@
 #define TESTMODEDIALOG_H
 
 #include <QDialog>
+#include <QString>
 
 namespace Ui {
 class TestModeDialog;
@@ -15,8 +16,14 @@ public:
     explicit TestModeDialog(QWidget *parent = nullptr);
     ~TestModeDialog();
 
+signals:
+    void changeToSandbox();
+    void enableButtons();
+
 public slots:
     void displaySpecificationsDialog(QString shapeSpec, QString colorSpec, QString soundSpec, int shellDiameterSpec);
+
+    void switchToSandbox();
 
 
 private:

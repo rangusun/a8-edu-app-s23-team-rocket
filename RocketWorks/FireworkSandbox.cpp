@@ -65,6 +65,10 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             &QSlider::valueChanged,
             this,
             [this]() { ui->shellPreview->update(); });
+    connect(ui->shellDiameterSlider,
+            &QSlider::valueChanged,
+            this,
+            [this](int value) {ui->diameterLabel->setText(QString::number(value) + " inches");});
     connect(ui->colorsDropdown,
             &QComboBox::currentTextChanged,
             this,

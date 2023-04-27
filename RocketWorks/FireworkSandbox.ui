@@ -49,7 +49,7 @@
      <item>
       <widget class="QSlider" name="shellDiameterSlider">
        <property name="minimum">
-        <number>3</number>
+        <number>6</number>
        </property>
        <property name="maximum">
         <number>12</number>
@@ -57,14 +57,29 @@
        <property name="singleStep">
         <number>3</number>
        </property>
-       <property name="value">
-        <number>8</number>
-       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
        <property name="tickPosition">
         <enum>QSlider::TicksBelow</enum>
+       </property>
+       <property name="tickInterval">
+        <number>3</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="diameterLabel">
+       <property name="font">
+        <font>
+         <family>Comic Sans MS</family>
+        </font>
+       </property>
+       <property name="text">
+        <string>6 inches</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -124,11 +139,6 @@
            <property name="sizeAdjustPolicy">
             <enum>QComboBox::AdjustToContents</enum>
            </property>
-           <item>
-            <property name="text">
-             <string>- Choose a Material -</string>
-            </property>
-           </item>
            <item>
             <property name="text">
              <string>Aluminum</string>

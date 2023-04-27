@@ -66,6 +66,7 @@ SOURCES += \
     TestModeModel.cpp \
     TutorialDialog.cpp \
     TutorialPage.cpp \
+    WinLoseDialog.cpp \
     WorldObject.cpp \
     main.cpp \
     mainwindow.cpp
@@ -131,6 +132,7 @@ HEADERS += \
     TutorialComponents.h \
     TutorialDialog.h \
     TutorialPage.h \
+    WinLoseDialog.h \
     WorldObject.h \
     mainwindow.h
 
@@ -141,7 +143,8 @@ FORMS += \
     TestModeDialog.ui \
     TutorialDialog.ui \
     TutorialPage.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    winlosedialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
