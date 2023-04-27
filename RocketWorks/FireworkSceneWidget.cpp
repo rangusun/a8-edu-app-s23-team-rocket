@@ -73,6 +73,15 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
         painter.drawEllipse(QRect(obj.drawX, obj.drawY, obj.width, obj.height));
     }
 
+    // Draw the mortar
+    WorldObject ground = world.getObject("ground");
+    int yPos = ground.pixelY - ground.height;
+    QImage mortar(":/FireworkResources/Resources/Tube.png");
+    int mortarWidth = 20;
+    int mortarHeight = 36;
+    QRect mortarRect(width()/2.0 - mortarWidth/2 - 1, yPos - mortarHeight/2 + 2, mortarWidth, mortarHeight);
+    painter.drawImage(mortarRect, mortar);
+
     if (!(particleFadeTimer.first <= 0))
     {
         particleFadeTimer.first -= (particleFadeTimer.second / particleFadeTimer.first * 0.13 * fireworkProps.getShellDiameter());
