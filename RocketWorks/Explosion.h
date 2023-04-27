@@ -21,12 +21,11 @@ private:
     int impulseStrength;
     int blastCenterY;
 
-    void explodeCircle(int numParticles, int impulseStrength, int yOffset);
-    void explodeLineBetweenPoints(QPoint point1, QPoint point2, int numParticles, int impulseStrength,
-                                  int yOffset, double xRandVariance, double yRandVariance, int &particleNum);
-    void explodeHeart(int numParticles, int impulseStrength, int yOffset);
-    void explodeStar(int numParticles, int impulseStrength, int yOffset);
-    void explodeSmiley(int numParticles, int impulseStrength, int yOffset);
+    void explodeCircle();
+    void explodeLineBetweenPoints(QPoint point1, QPoint point2, int numParticles, int impulseStrength, double xRandVariance, double yRandVariance, int &particleNum);
+    void explodeHeart();
+    void explodeStar();
+    void explodeSmiley();
 };
 
 #endif // EXPLOSION_H

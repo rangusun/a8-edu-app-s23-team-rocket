@@ -63,7 +63,7 @@ void ShellPreviewWidget::paintEvent(QPaintEvent *)
             break;
 
         case(star):
-            drawStarStar(painter, shellDiameter, starDiameter, numStars, screenCenterX, screenCenterY);
+            drawStarStar(painter, shellDiameter, starDiameter, screenCenterX, screenCenterY);
             break;
 
         case(smile):
