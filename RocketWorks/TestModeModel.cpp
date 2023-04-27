@@ -43,9 +43,6 @@ void TestModeModel::checkUserSelections(FireworkProperties& userSelections)
     else
     {
         emit userWinOrLoss(false);
-
-        winStreak = 0;
-        emit winStreakChanged(winStreak);
     }
 }
 
