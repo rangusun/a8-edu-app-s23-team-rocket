@@ -25,7 +25,7 @@ private:
                        float screenCenterX, float screenCenterY);
     void drawStarHeart(QPainter &painter, float shellDiameter, float starDiameter, int numStars,
                        float screenCenterX, float screenCenterY);
-    void drawStarStar(QPainter &painter, float shellDiameter, float starDiameter, int numStars,
+    void drawStarStar(QPainter &painter, float shellDiameter, float starDiameter,
                        float screenCenterX, float screenCenterY);
     void drawStarSmiley(QPainter &painter, float shellDiameter, float starDiameter, int numStars,
                       float screenCenterX, float screenCenterY);

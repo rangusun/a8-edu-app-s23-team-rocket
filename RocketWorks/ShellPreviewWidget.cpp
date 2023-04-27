@@ -41,6 +41,7 @@ void ShellPreviewWidget::paintEvent(QPaintEvent *)
         painter.setPen(starColor);
         painter.setBrush(starColor);
     }
+
     // If star colors are not enabled, make stars grey like they would be irl
     else
     {
@@ -141,7 +142,7 @@ void ShellPreviewWidget::drawStarHeart(QPainter &painter, float shellDiameter, f
     drawStarLineBetweenPoints(painter, bottomPoint, topRightPoint, starDiameter);
 }
 
-void ShellPreviewWidget::drawStarStar(QPainter &painter, float shellDiameter, float starDiameter, int numStars, float screenCenterX, float screenCenterY)
+void ShellPreviewWidget::drawStarStar(QPainter &painter, float shellDiameter, float starDiameter, float screenCenterX, float screenCenterY)
 {
     // Calculate star's outer points
     QVector<QPoint> outerPoints;
@@ -205,14 +206,11 @@ void ShellPreviewWidget::drawStarSmiley(QPainter &painter, float shellDiameter, 
 void ShellPreviewWidget::setFireworkProperties(FireworkProperties *fireworkProps)
 {
     this->fireworkProps = fireworkProps;
-
-    // Connections to fireworkProps go here
 }
 
 void ShellPreviewWidget::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
-
     background = QImage(":/ShellPreviewResources/Resources/ShellPreviewBackground.png");
     background = background.scaled(this->width(), this->height());
     update();

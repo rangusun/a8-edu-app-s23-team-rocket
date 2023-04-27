@@ -37,8 +37,6 @@ void B2DWorldWrapper::initializeWorld(double screenWidth, double screenHeight, d
     double groundXPos = 0.0;
     double groundYPos = (-screenHeight/2.0) / zoom;
 
-    qDebug() << "Ground y pos: " << groundYPos;
-
     // Create the ground object and add it to the Box2D world
     b2BodyDef groundBodyDef;
     groundBodyDef.position.Set(groundXPos, groundYPos);
@@ -87,7 +85,6 @@ void B2DWorldWrapper::addObject(WorldObject newObject)
 
     // Add the new dynamic-body object to the list of world objects
     // to keep track of
-
     worldObjects[newObject.name] = body;
 
     std::pair<double, double> dimensions{(newObject.width / zoom), (newObject.height / zoom)};
@@ -122,10 +119,6 @@ WorldObject B2DWorldWrapper::getObject(string name)
 
 void B2DWorldWrapper::applyForceToObject(string name, int x, int y)
 {
-    if (worldObjects.count(name) == 0){
-        qDebug()<<"uh oh\n";
-    }
-
     worldObjects[name]->ApplyForce(b2Vec2(x, y), b2Vec2(worldObjects[name]->GetPosition().x,worldObjects[name]->GetPosition().y), true);
 }
 

@@ -8,7 +8,7 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Set up fireworks scene widget ---------------------
+    // Set up fireworks scene widget ------------------------------------
     connect(ui->launchButton,
             &QPushButton::clicked,
             ui->fireworkScene,
@@ -41,7 +41,7 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
 
     ui->fireworkScene->fireworkProps.setShellDiameter(ui->shellDiameterSlider->value());
 
-    // Set up buttons to disable after firework is launched --------------------
+    // Set up buttons to disable after firework is launched ---------------
     connect(ui->launchButton,
             &QPushButton::clicked,
             this,
@@ -57,8 +57,9 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             this,
             [this]() { emit launch(ui->fireworkScene->fireworkProps); });
 
-    // Set up shell preview --------------------------------
+    // Set up shell preview ------------------------------------------------
     ui->shellPreview->setFireworkProperties(&ui->fireworkScene->fireworkProps);
+
     ui->shellPreview->update();
 
     connect(ui->shellDiameterSlider,
@@ -120,6 +121,7 @@ void FireworkSandbox::switchModes(QString mode)
     {
         ui->shellPreview->showStarColor = false;
 
+        // Changes dropdown sounds to thier test version
         ui->soundsDropdown->setItemText(0, "Bismuth");
         ui->soundsDropdown->setItemText(1, "Organic Compounds");
         ui->soundsDropdown->setItemText(2, "Gun Powder");

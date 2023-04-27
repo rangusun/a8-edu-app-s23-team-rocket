@@ -10,12 +10,12 @@ FireworkProperties::FireworkProperties()
 
 int FireworkProperties::getFlightDuration()
 {
-    return shellDiameter * 50; //TODO: Optimize flight duration based on blast strength
+    return shellDiameter * 50;
 }
 
 int FireworkProperties::getBlastStrength()
 {
-    return shellDiameter; //TODO: Tweak blast strength value so that it looks good onscreen
+    return shellDiameter;
 }
 
 QColor FireworkProperties::getParticleColor()
