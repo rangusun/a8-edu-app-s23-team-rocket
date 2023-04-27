@@ -1,3 +1,17 @@
+/**
+ *  A8: Educational App
+ *
+ *  @brief Contains code/math for creating a particle explosion in the B2DWorld
+ *
+ *  An explosion is can be generated in the B2World by creating an Explosion object
+ *  and giving a FireworksProperties object and B2DWorldWrapper. The explosion handles
+ *  creating and placing particles at the right coordinates and giving them the appropriate
+ *  vector of force to create an explosion in the world that matches the desired shape and
+ *  size in the firework properties.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "Explosion.h"
 
 Explosion::Explosion(FireworkProperties *fireworkProps, B2DWorldWrapper *world, QObject *parent)
