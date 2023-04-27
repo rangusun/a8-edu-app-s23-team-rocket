@@ -119,40 +119,38 @@ void FireworkSceneWidget::explode()
     }
 
     //end sound stuff
-    const int impulseStrength = fireworkProps.getBlastStrength();
-    const int numParticles = impulseStrength * 15 - 24;
+//    const int impulseStrength = fireworkProps.getBlastStrength();
+//    const int numParticles = impulseStrength * 15 - 24;
 
     WorldObject shell = world.getObject("shell");
-    int blastY = shell.cartY + 20;
+//    int blastY = shell.cartY + 20;
     world.removeObject("shell");
 
     particleFadeTimer = std::pair<int, int>(fireworkProps.getShellDiameter() * 45, fireworkProps.getShellDiameter() * 45);
     fireworkProps.setBlastCenter(QPoint(width()/2, shell.pixelY));
 
-    qDebug()<<blastY;
+//    switch(fireworkProps.getShape())
+//    {
+//        case(circle):
+//            explodeCircle(numParticles, impulseStrength, blastY);
+//            break;
 
-    switch(fireworkProps.getShape())
-    {
-        case(circle):
-            explodeCircle(numParticles, impulseStrength, blastY);
-            break;
+//        case(heart):
+//            explodeHeart(numParticles, impulseStrength, blastY);
+//            break;
 
-        case(heart):
-            explodeHeart(numParticles, impulseStrength, blastY);
-            break;
+//        case(star):
+//            explodeStar(numParticles, impulseStrength, blastY);
+//            break;
 
-        case(star):
-            explodeStar(numParticles, impulseStrength, blastY);
-            break;
+//        case(smile):
+//            explodeSmiley(numParticles, impulseStrength, blastY);
+//            break;
 
-        case(smile):
-            explodeSmiley(numParticles, impulseStrength, blastY);
-            break;
-
-        default:
-            explodeCircle(numParticles, impulseStrength, blastY);
-            break;
-    }
+//        default:
+//            explodeCircle(numParticles, impulseStrength, blastY);
+//            break;
+//    }
 }
 
 void FireworkSceneWidget::explodeCircle(int numParticles, int impulseStrength, int yOffset)
