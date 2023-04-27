@@ -119,6 +119,10 @@ void FireworkSandbox::switchModes(QString mode)
     if (mode == "test")
     {
         ui->shellPreview->showStarColor = false;
+
+        ui->soundsDropdown->setItemText(0, "Bismuth");
+        ui->soundsDropdown->setItemText(1, "Organic Compounds");
+        ui->soundsDropdown->setItemText(2, "Gun Powder");
     }
     else
     {

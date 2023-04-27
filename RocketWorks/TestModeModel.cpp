@@ -1,9 +1,6 @@
 #include "TestModeModel.h"
 
-TestModeModel::TestModeModel()
-{
-
-}
+TestModeModel::TestModeModel() {}
 
 void TestModeModel::generateFireworkSpecifications()
 {
@@ -30,7 +27,6 @@ void TestModeModel::generateFireworkSpecifications()
     // Randomly generate a firework shell diameter specification.
     shellDiameterSpec = rand() % (shellDiameterMax - shellDiameterMin) + shellDiameterMin ;
     fireworkSpec.setShellDiameter(shellDiameterSpec);
-
 
     emit specificationsGenerated(shapeSpec, colorSpec, soundSpec, shellDiameterSpec);
 }

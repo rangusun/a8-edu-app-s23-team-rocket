@@ -100,7 +100,18 @@ void FireworkProperties::setColor(QString color)
 
 void FireworkProperties::setSound(QString sound)
 {
-    this->sound = sound;
+    if (sound == "Bismuth" || sound == "Bismuth (Crackle)" || sound == "Crackle")
+    {
+        this->sound = "Crackle";
+    }
+    else if (sound == "Organic Compounds" || sound == "Organic Compounds (Whistle)" || sound == "Whistle")
+    {
+        this->sound = "Whistle";
+    }
+    else if (sound == "Gun Powder" || sound == "Gun Powder (Bang)" || sound == "Bang")
+    {
+        this->sound = "Bang";
+    }
 }
 
 void FireworkProperties::setShape(QString shapeString)

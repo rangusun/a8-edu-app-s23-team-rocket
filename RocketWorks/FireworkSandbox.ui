@@ -116,9 +116,9 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QLabel" name="label_3">
+          <widget class="QLabel" name="colorLabel">
            <property name="text">
-            <string>Color</string>
+            <string>Color Material</string>
            </property>
           </widget>
          </item>
@@ -182,9 +182,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="soundLabel">
            <property name="text">
-            <string>Sound</string>
+            <string>Sound Material</string>
            </property>
           </widget>
          </item>
@@ -192,17 +192,17 @@
           <widget class="QComboBox" name="soundsDropdown">
            <item>
             <property name="text">
-             <string>Crackle</string>
+             <string>Bismuth (Crackle)</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Whistle</string>
+             <string>Organic Compounds (Whistle)</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Bang</string>
+             <string>Gun Powder (Bang)</string>
             </property>
            </item>
           </widget>

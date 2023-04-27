@@ -77,9 +77,10 @@ void FireworkTestMode::startTestMode()
 
 void FireworkTestMode::listSpecifications(QString shapeSpec, QString colorSpec, QString soundSpec, int shellDiameterSpec)
 {
-    ui->specsLabel->setText("Specifications:\n- " +
-                            colorSpec +
-                             "\n- " + QString::number(shellDiameterSpec) + " in." +
-                             "\n- " + shapeSpec +
-                             "\n- " + soundSpec);
+    QString color = colorSpec.left(1).toUpper() + colorSpec.mid(1);
+
+    ui->colorSpecsLabel->setText("Color: " + color);
+    ui->sizeSpecsLabel->setText("Shell diameter: " + QString::number(shellDiameterSpec));
+    ui->shapeSpecsLabel->setText("Shape: " + shapeSpec);
+    ui->soundSpecsLabel->setText("Sound: " + soundSpec);
 }

@@ -15,6 +15,9 @@ TestModeDialog::TestModeDialog(QWidget *parent) :
             &QDialogButtonBox::clicked,
             this,
             &TestModeDialog::enableButtons);
+
+    setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint );
+
 }
 
 void TestModeDialog::displaySpecificationsDialog(QString shapeSpec, QString colorSpec, QString soundSpec, int shellDiameterSpec)
