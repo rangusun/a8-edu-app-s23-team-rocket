@@ -29,6 +29,10 @@ public slots:
 
 private:
     Ui::FireworkSandbox *ui;
+    QImage controlPanelBackground;
+
+protected:
+    void paintEvent(QPaintEvent *);
 };
 
 #endif // FIREWORKSANDBOX_H

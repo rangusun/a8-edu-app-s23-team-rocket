@@ -13,8 +13,6 @@ class FireworkSceneWidget : public QWidget
     Q_OBJECT
 public:
     explicit FireworkSceneWidget(QWidget *parent = nullptr);
-    void paintEvent(QPaintEvent *);
-
     FireworkProperties fireworkProps;
 
 signals:
@@ -38,6 +36,7 @@ private:
     B2DWorldWrapper world;
 
 protected:
+    void paintEvent(QPaintEvent *);
     void resizeEvent(QResizeEvent* event);
 };
 

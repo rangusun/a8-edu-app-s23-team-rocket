@@ -26,12 +26,19 @@ private:
 
     TestModeDialog testModeDialog;
     WinLoseDialog winLoseDialog;
+    bool visited;
 
 signals:
     void changeToSandbox();
 
 public slots:
     void startTestMode();
+    void displaySpecificationsDialog(QString shapeSpec, QString colorSpec, QString soundSpec, int shellDiameterSpec);
+    void updateOrdersFulfilled(int ordersFulfilled);
+    void displayOrderCorrect(bool orderCorrect);
+
+protected:
+    void paintEvent(QPaintEvent *);
 
 private slots:
     void switchToSandbox();

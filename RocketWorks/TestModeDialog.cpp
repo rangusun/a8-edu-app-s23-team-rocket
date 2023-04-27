@@ -1,5 +1,6 @@
 #include "TestModeDialog.h"
 #include "ui_TestModeDialog.h"
+#include <QPainter>
 
 TestModeDialog::TestModeDialog(QWidget *parent) :
     QDialog(parent),
@@ -38,4 +39,15 @@ void TestModeDialog::switchToSandbox()
 {
     close();
     emit changeToSandbox();
+}
+
+void TestModeDialog::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+
+    QRect orderGeometry = ui->orderLayout->geometry();
+
+    QImage orderSheet(":/TestModeResources/Resources/orderForm.png");
+
+    painter.drawImage(orderGeometry, orderSheet);
 }

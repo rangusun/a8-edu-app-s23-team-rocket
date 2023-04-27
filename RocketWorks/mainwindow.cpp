@@ -44,8 +44,7 @@ void MainWindow::switchToSandboxPage()
     ui->windowStack->setCurrentWidget(&sandboxPage);
 
     ui->windowStack->resize(sandboxPage.size());
-    this->setFixedSize(sandboxPage.width() + 2, sandboxPage.height() + 20);
-
+    this->setFixedSize(827, 695);
 }
 
 void MainWindow::switchToTestModePage()
@@ -53,5 +52,5 @@ void MainWindow::switchToTestModePage()
     ui->windowStack->setCurrentWidget(&testPage);
 
     ui->windowStack->resize(testPage.size());
-    this->setFixedSize(testPage.width() + 2, testPage.height() + 100);
+    this->setFixedSize(1087, 628);
 }

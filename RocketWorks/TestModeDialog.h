@@ -22,9 +22,10 @@ signals:
 
 public slots:
     void displaySpecificationsDialog(QString shapeSpec, QString colorSpec, QString soundSpec, int shellDiameterSpec);
-
     void switchToSandbox();
 
+protected:
+    void paintEvent(QPaintEvent *);
 
 private:
     Ui::TestModeDialog *ui;

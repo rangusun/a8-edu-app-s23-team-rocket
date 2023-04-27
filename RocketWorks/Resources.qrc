@@ -24,4 +24,10 @@
     <qresource prefix="/ShellPreviewResources">
         <file>Resources/ShellPreviewBackground.png</file>
     </qresource>
+    <qresource prefix="/SandboxUIResources">
+        <file>Resources/caution-stripe-background.jpg</file>
+    </qresource>
+    <qresource prefix="/TestModeResources">
+        <file>Resources/orderForm.png</file>
+    </qresource>
 </RCC>

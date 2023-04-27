@@ -1,10 +1,12 @@
 #include "FireworkSandbox.h"
 #include "ui_FireworkSandbox.h"
 #include <QDebug>
+#include <QPainter>
 
 FireworkSandbox::FireworkSandbox(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::FireworkSandbox)
+    ui(new Ui::FireworkSandbox),
+    controlPanelBackground(":/SandboxUIResources/Resources/caution-stripe-background.jpg")
 {
     ui->setupUi(this);
 
@@ -78,6 +80,8 @@ FireworkSandbox::FireworkSandbox(QWidget *parent) :
             &QComboBox::currentTextChanged,
             this,
             [this]() { ui->shellPreview->update(); });
+
+    update();
 }
 
 FireworkSandbox::~FireworkSandbox()
@@ -130,5 +134,16 @@ void FireworkSandbox::switchModes(QString mode)
     {
         ui->shellPreview->showStarColor = true;
     }
+}
+
+void FireworkSandbox::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+
+    QRect controlPanelGeometry = ui->verticalLayout->geometry();
+
+    controlPanelBackground.scaled(controlPanelGeometry.width(), controlPanelGeometry.height());
+
+//    painter.drawImage(controlPanelGeometry, controlPanelBackground);
 }
 
