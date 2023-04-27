@@ -1,28 +1,32 @@
+/**
+ *  A8: An-Educational-App
+ *
+ *  @brief Popup dialog to celebrate the user fulfilling 3 correct orders
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "WinDialog.h"
 #include "ui_WinDialog.h"
 
-WinLoseDialog::WinLoseDialog(QWidget *parent) :
+WinDialog::WinDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::WinLoseDialog)
+    ui(new Ui::WinDialog)
 {
     ui->setupUi(this);
     connect(ui->sandBoxButton,
             &QPushButton::clicked,
             this,
-            &WinLoseDialog::switchToSandbox);
-    connect(ui->buttonBox,
-            &QDialogButtonBox::clicked,
-            this,
-            &WinLoseDialog::newTest);
+            &WinDialog::switchToSandbox);
 }
 
-void WinLoseDialog::switchToSandbox()
+void WinDialog::switchToSandbox()
 {
     close();
     emit backToSandbox();
 }
 
-WinLoseDialog::~WinLoseDialog()
+WinDialog::~WinDialog()
 {
     delete ui;
 }
