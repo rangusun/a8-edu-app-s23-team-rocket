@@ -7,6 +7,7 @@
 
 FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) :
     QWidget(parent),
+    testMode(false),
     timer(this),
     image(":/FireworkResources/Resources/Firework.png"),
     background(":/FireworkResources/Resources/nightBackground.png"),
@@ -50,7 +51,9 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
             if (alpha <= 10)
             {
                 world.removeObject(obj.name);
-                emit enableButtons();
+
+                if (!testMode)
+                    emit enableButtons();
             }
         }
         else

@@ -25,14 +25,6 @@ public:
     explicit ShellPreviewWidget(QWidget *parent = nullptr);
 
     /**
-     * @brief – Paints the Shell and the starshape for the user to see.
-     *
-     *
-     * @param QPaintEvent - A pointer to a QPaintEvent.
-     */
-    void paintEvent(QPaintEvent *);
-
-    /**
      * @brief – Setter for the Firework properties.
      *
      *
@@ -116,7 +108,15 @@ private:
 
 protected:
     /**
-     * @brief – Will reseize the shellpreview window if its changed..
+     * @brief – Paints the Shell and the starshape for the user to see.
+     *
+     *
+     * @param QPaintEvent - A pointer to a QPaintEvent.
+     */
+    void paintEvent(QPaintEvent *);
+
+    /**
+     * @brief – Will reseize the shell preview window if its changed..
      *
      *
      * @param QResizeEvent* event - A pointer to a QResizeEvent object.

@@ -89,6 +89,8 @@ void FireworkTestMode::startTestMode()
 {
     model.generateFireworkSpecifications();
     ui->newOrderButton->setEnabled(false);
+
+    ui->orderResultWindow->setText("");
 }
 
 void FireworkTestMode::displaySpecificationsDialog(QString shapeSpec, QString colorSpec, QString soundSpec, int shellDiameterSpec)
@@ -104,6 +106,11 @@ void FireworkTestMode::updateOrdersFulfilled(int ordersFulfilled)
     if (ordersFulfilled <= 3)
     {
         ui->winStreakLabel->setText("Orders Fulfilled: " + QString::number(ordersFulfilled) + "/3");
+    }
+
+    if (ordersFulfilled == 3)
+    {
+        winLoseDialog.show();
     }
 }
 

@@ -18,7 +18,6 @@ signals:
     void backToSandbox();
     void newTest();
 public slots:
-    void displayUserWinOrLoss(bool didUserWin);
     void switchToSandbox();
 private:
     Ui::WinLoseDialog *ui;

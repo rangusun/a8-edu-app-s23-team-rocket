@@ -29,5 +29,6 @@
     </qresource>
     <qresource prefix="/TestModeResources">
         <file>Resources/orderForm.png</file>
+        <file>Resources/winIcon.png</file>
     </qresource>
 </RCC>

@@ -14,6 +14,7 @@ class FireworkSceneWidget : public QWidget
 public:
     explicit FireworkSceneWidget(QWidget *parent = nullptr);
     FireworkProperties fireworkProps;
+    bool testMode;
 
 signals:
     void enableButtons();

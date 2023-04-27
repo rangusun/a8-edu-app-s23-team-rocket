@@ -124,6 +124,7 @@ void FireworkSandbox::switchModes(QString mode)
     if (mode == "test")
     {
         ui->shellPreview->showStarColor = false;
+        ui->fireworkScene->testMode = true;
 
         // Changes dropdown sounds to thier test version
         ui->soundsDropdown->setItemText(0, "Bismuth");
@@ -133,6 +134,7 @@ void FireworkSandbox::switchModes(QString mode)
     else
     {
         ui->shellPreview->showStarColor = true;
+        ui->fireworkScene->testMode = false;
     }
 }
 
