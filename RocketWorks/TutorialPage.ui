@@ -218,56 +218,6 @@ alternate-background-color: rgb(209, 61, 61);</string>
     </size>
    </property>
   </widget>
-  <widget class="QLabel" name="fuseLabel">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>550</y>
-     <width>58</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Comic Sans MS</family>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: black;</string>
-   </property>
-   <property name="text">
-    <string>Fuse</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="fuseLabel_2">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>140</y>
-     <width>101</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Comic Sans MS</family>
-     <pointsize>23</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: black;</string>
-   </property>
-   <property name="text">
-    <string>Shell</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <zorder>fireworkDiagram</zorder>
   <zorder>label</zorder>
   <zorder>nextButton</zorder>
@@ -275,8 +225,6 @@ alternate-background-color: rgb(209, 61, 61);</string>
   <zorder>blastButton</zorder>
   <zorder>liftButton</zorder>
   <zorder>otherButton</zorder>
-  <zorder>fuseLabel</zorder>
-  <zorder>fuseLabel_2</zorder>
  </widget>
  <resources>
   <include location="Resources.qrc"/>
