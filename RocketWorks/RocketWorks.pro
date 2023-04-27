@@ -62,6 +62,7 @@ SOURCES += \
     FireworkSandboxMode.cpp \
     FireworkSceneWidget.cpp \
     FireworkTestMode.cpp \
+    SandboxDialog.cpp \
     ShellPreviewWidget.cpp \
     TestModeDialog.cpp \
     TestModeModel.cpp \
@@ -128,6 +129,7 @@ HEADERS += \
     FireworkSceneWidget.h \
     FireworkShapeEnum.h \
     FireworkTestMode.h \
+    SandboxDialog.h \
     ShellPreviewWidget.h \
     TestModeDialog.h \
     TestModeModel.h \
@@ -142,6 +144,7 @@ FORMS += \
     FireworkSandbox.ui \
     FireworkSandboxMode.ui \
     FireworkTestMode.ui \
+    SandboxDialog.ui \
     TestModeDialog.ui \
     TutorialDialog.ui \
     TutorialPage.ui \

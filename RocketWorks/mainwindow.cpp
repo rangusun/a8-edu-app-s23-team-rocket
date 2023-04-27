@@ -45,6 +45,12 @@ void MainWindow::switchToSandboxPage()
 
     ui->windowStack->resize(sandboxPage.size());
     this->setFixedSize(827, 695);
+
+    if (!sandboxPage.visited)
+    {
+        sandboxPage.sandboxDialog.show();
+        sandboxPage.visited = true;
+    }
 }
 
 void MainWindow::switchToTestModePage()

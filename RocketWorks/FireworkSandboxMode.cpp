@@ -3,7 +3,8 @@
 
 FireworkSandboxMode::FireworkSandboxMode(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::FireworkSandboxMode)
+    ui(new Ui::FireworkSandboxMode),
+    visited(false)
 {
     ui->setupUi(this);
 
