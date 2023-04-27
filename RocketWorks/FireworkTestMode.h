@@ -4,7 +4,7 @@
 #include <QWidget>
 #include "TestModeModel.h"
 #include "TestModeDialog.h"
-#include "WinLoseDialog.h"
+#include "WinDialog.h"
 #include <QDialogButtonBox>
 
 namespace Ui {

@@ -48,6 +48,9 @@ void TestModeModel::checkUserSelections(FireworkProperties& userSelections)
 
 void TestModeModel::resetWinStreak()
 {
-    winStreak = 0;
-    emit winStreakChanged(winStreak);
+    if (winStreak < 3)
+    {
+        winStreak = 0;
+        emit winStreakChanged(winStreak);
+    }
 }
