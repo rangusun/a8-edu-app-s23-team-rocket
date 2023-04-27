@@ -1,3 +1,11 @@
+/**
+ *  A8: An-Educational-App
+ *
+ *  @brief Popup dialog for displaying information on different components of a firework during the tutorial.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "TutorialDialog.h"
 #include "ui_TutorialDialog.h"
 

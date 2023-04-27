@@ -1,3 +1,11 @@
+/**
+ *  A8: An-Educational-App
+ *
+ *  @brief This class holds all the ShellPreview functions for drawing the Shell.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "ShellPreviewWidget.h"
 #include "FireworkShapeEnum.h"
 #include <QPainter>
