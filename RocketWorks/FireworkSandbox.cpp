@@ -1,3 +1,11 @@
+/**
+ *  A8: Educational-App
+ *
+ *  @brief UI for building and displaying a firework.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "FireworkSandbox.h"
 #include "ui_FireworkSandbox.h"
 #include <QDebug>
@@ -136,16 +144,5 @@ void FireworkSandbox::switchModes(QString mode)
         ui->shellPreview->showStarColor = true;
         ui->fireworkScene->testMode = false;
     }
-}
-
-void FireworkSandbox::paintEvent(QPaintEvent *)
-{
-    QPainter painter(this);
-
-    QRect controlPanelGeometry = ui->verticalLayout->geometry();
-
-    controlPanelBackground.scaled(controlPanelGeometry.width(), controlPanelGeometry.height());
-
-//    painter.drawImage(controlPanelGeometry, controlPanelBackground);
 }
 

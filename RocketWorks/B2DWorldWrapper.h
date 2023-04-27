@@ -1,10 +1,9 @@
 /**
- *  A8: An-Educational-App
+ *  A8: Educational-App
  *
- *  @brief A wrapper class that makes creating objects in Box2D easier.
+ *  @brief A wrapper class that makes creating and tracking objects in Box2D easier.
  *
- *
- *  By
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
  *  for CS 3505 in Spring 2023
 */
 #include <Box2D/Box2D.h>
@@ -90,9 +89,15 @@ public:
     void initializeWorld(double screenWidth, double screenHeight, double zoom);
 
 signals:
+    /**
+     * @brief – Informs the view that the world has updated
+     */
     void worldUpdated();
 
 private slots:
+    /**
+     * @brief – Called by timer to update the Box2D physics world
+     */
     void updateWorld();
 };
 

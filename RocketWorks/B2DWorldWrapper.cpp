@@ -1,3 +1,11 @@
+/**
+ *  A8: Educational-App
+ *
+ *  @brief A wrapper class that makes creating and tracking objects in Box2D easier.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "B2DWorldWrapper.h"
 #include <QDebug>
 

@@ -1,11 +1,11 @@
 /**
- *  A8: An-Educational-App
+ *  A8: Educational-App
  *
  *  @brief This class stores all the properties for a firework object
  *   so it can be passed around to other classes.
  *
  *
- *  By
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
  *  for CS 3505 in Spring 2023
 */
 #include <QObject>
@@ -28,14 +28,12 @@ public:
     /**
      * @brief – Gets the flight duration of a firework
      *
-     *
      * @return int – Flight duration time.
      */
     int getFlightDuration();
 
     /**
      * @brief – Gets the blast strength for the firework.
-     *
      *
      * @return int – Blast strength.
      */
@@ -44,22 +42,19 @@ public:
     /**
      * @brief – Gets the shell diameter of the firework.
      *
-     *
      * @return int – Shell Diameter.
      */
     int getShellDiameter();
 
     /**
-     * @brief – Operator overloading that compares two FireworkProperties Objects.
-     *
+     * @brief – Operator overload that compares two FireworkProperties Objects.
      *
      * @return bool – boolean value indicating whether the two objects are equal or not.
      */
     bool operator==(const FireworkProperties& other);
 
     /**
-     * @brief – Operator overloading that compares two FireworkProperties Objects.
-     *
+     * @brief – Operator overload that compares two FireworkProperties Objects.
      *
      * @return bool – boolean value indicating whether the two objects are equal or not.
      */
@@ -68,7 +63,6 @@ public:
     /**
      * @brief – Getter for particle color.
      *
-     *
      * @return QColor - The particle color.
      */
     QColor getParticleColor();
@@ -76,30 +70,12 @@ public:
     /**
      * @brief – Getter for firework sound.
      *
-     *
      * @return QString - The sound for the firework.
      */
     QString getSound();
 
     /**
-     * @brief – Getter for blast center.
-     *
-     *
-     * @return QPoint - The center of the blast.
-     */
-    QPoint getBlastCenter();
-
-    /**
-     * @brief – Setter for the blast center.
-     *
-     *
-     * @param QPoint blastCenter - The center point for the blast.
-     */
-    void setBlastCenter(QPoint blastCenter);
-
-    /**
      * @brief – Getter for firework shape.
-     *
      *
      * @return FireworkShape - The shape of the firework.
      */
@@ -107,9 +83,24 @@ public:
 
 
 public slots:
+    /**
+     * @brief – Sets the shell diameter.
+     */
     void setShellDiameter(int diameter);
+
+    /**
+     * @brief – Sets the color of the firework
+     */
     void setColor(QString color);
+
+    /**
+     * @brief – Sets the sound of the firework
+     */
     void setSound(QString sound);
+
+    /**
+     * @brief – Sets the sound of the firework
+     */
     void setShape(QString shape);
 
 private:

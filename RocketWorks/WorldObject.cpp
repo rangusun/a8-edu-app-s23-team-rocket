@@ -1,3 +1,20 @@
+/**
+ *  A8: An-Educational-App
+ *
+ *  @brief This class holds information about a WorldObject object and
+ *  holds functions that can make these objects from pixel, cartesian, and Box2D coordinates.
+ *
+ *  All coordinates are autotranslated to make converting on-screen coordinates to box2d coordinates
+ *  or different on-screen coordinate systems.
+ *
+ *  Cartesian, pixel, and draw coordinates are all by pixel units according to positions on the screen.
+ *  Pixel coordinates are from 0, 0 at the top left with down as the positive Y and left as the positive X.
+ *  Draw coordinates are the pixel coordinates translated by half the object width and height so objects
+ *  can be drawn correctly from the top left corner.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "WorldObject.h"
 
 double WorldObject::screenWidth = 0;

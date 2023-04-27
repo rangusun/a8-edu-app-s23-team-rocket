@@ -4,8 +4,15 @@
  *  @brief This class holds information about a WorldObject object and
  *  holds functions that can make these objects from pixel, cartesian, and Box2D coordinates.
  *
+ *  All coordinates are autotranslated to make converting on-screen coordinates to box2d coordinates
+ *  or different on-screen coordinate systems.
  *
- *  By
+ *  Cartesian, pixel, and draw coordinates are all by pixel units according to positions on the screen.
+ *  Pixel coordinates are from 0, 0 at the top left with down as the positive Y and left as the positive X.
+ *  Draw coordinates are the pixel coordinates translated by half the object width and height so objects
+ *  can be drawn correctly from the top left corner.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
  *  for CS 3505 in Spring 2023
 */
 #ifndef WORLDOBJECT_H
@@ -33,6 +40,7 @@ public:
     /**
      * @brief – Setter for the screen width and height.
      *
+     * Must be set before using WorldObjects to autotranslate coordinates correctly.
      *
      * @param double screenWidth – The screen width.
      * @param double screenHeight – The screen height.
@@ -42,6 +50,7 @@ public:
     /**
      * @brief – Setter for the zoom value.
      *
+     * Must be set before using WorldObjects to autotranslate coordinates correctly.
      *
      * @param double zoom - The zoom value.
      */

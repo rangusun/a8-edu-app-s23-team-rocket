@@ -1,3 +1,11 @@
+/**
+ *  A8: Educational-App
+ *
+ *  @brief Widget to display fireworks using Box2D physics.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "FireworkSceneWidget.h"
 #include "WorldObject.h"
 #include "Explosion.h"
@@ -142,7 +150,6 @@ void FireworkSceneWidget::explode()
     WorldObject shell = world.getObject("shell");
 
     particleFadeTimer = std::pair<int, int>(fireworkProps.getShellDiameter() * 45, fireworkProps.getShellDiameter() * 45);
-    fireworkProps.setBlastCenter(QPoint(width()/2, shell.pixelY));
 
     Explosion explosion(&fireworkProps, &world);
     world.removeObject("shell");

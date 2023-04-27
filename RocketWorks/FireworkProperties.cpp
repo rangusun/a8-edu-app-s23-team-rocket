@@ -1,3 +1,13 @@
+/**
+ *  A8: Educational-App
+ *
+ *  @brief This class stores all the properties for a firework object
+ *   so it can be passed around to other classes.
+ *
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "FireworkProperties.h"
 
 FireworkProperties::FireworkProperties()
@@ -26,16 +36,6 @@ QColor FireworkProperties::getParticleColor()
 QString FireworkProperties::getSound()
 {
     return sound;
-}
-
-QPoint FireworkProperties::getBlastCenter()
-{
-    return blastCenter;
-}
-
-void FireworkProperties::setBlastCenter(QPoint blastCenter)
-{
-    this->blastCenter = blastCenter;
 }
 
 FireworkShape FireworkProperties::getShape()
