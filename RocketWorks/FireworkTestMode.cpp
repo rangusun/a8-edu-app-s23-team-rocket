@@ -55,13 +55,13 @@ FireworkTestMode::FireworkTestMode(QWidget *parent) :
             this,
             &FireworkTestMode::listSpecifications);
     connect(&model,
-            &TestModeModel::winStreakChanged,
+            &TestModeModel::winCountChanged,
             this,
             &FireworkTestMode::updateOrdersFulfilled);
     connect(this,
             &FireworkTestMode::changeToSandbox,
             &model,
-            &TestModeModel::resetWinStreak);
+            &TestModeModel::resetWinCount);
     connect(&testModeDialog,
             &TestModeDialog::enableButtons,
             ui->testModeSandbox,

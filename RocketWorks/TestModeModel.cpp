@@ -48,8 +48,8 @@ void TestModeModel::checkUserSelections(FireworkProperties& userSelections)
         // user successfully matched the most recently generated firework specifications
         emit userWinOrLoss(true);
 
-        winStreak++;
-        emit winStreakChanged(winStreak);
+        winCount++;
+        emit winCountChanged(winCount);
     }
     else
     {
@@ -58,13 +58,13 @@ void TestModeModel::checkUserSelections(FireworkProperties& userSelections)
     }
 }
 
-void TestModeModel::resetWinStreak()
+void TestModeModel::resetWinCount()
 {
     // The win streak should only be reset if the user has not
     // fulfilled 3 client orders and passed the full testing level.
-    if (winStreak < 3)
+    if (winCount < 3)
     {
-        winStreak = 0;
-        emit winStreakChanged(winStreak);
+        winCount = 0;
+        emit winCountChanged(winCount);
     }
 }

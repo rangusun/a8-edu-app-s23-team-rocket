@@ -46,9 +46,9 @@ public slots:
     void checkUserSelections(FireworkProperties& userSelections);
 
     /**
-     * @brief resetWinStreak resets the count of successful order fulfillments for the user.
+     * @brief resetWinStreak resets the count of successful order fulfillments for the current session.
      */
-    void resetWinStreak();
+    void resetWinCount();
 
 signals:
     /**
@@ -70,10 +70,10 @@ signals:
     void userWinOrLoss(bool win);
 
     /**
-     * @brief winStreakChanged notifies the view that the user's number of wins has changed so that the new win count can be displayed
-     * @param streakCount
+     * @brief winCountChanged notifies the view that the user's number of wins has changed so that the new win count can be displayed
+     * @param newWinCount the new number of wins the user has
      */
-    void winStreakChanged(int streakCount);
+    void winCountChanged(int newWinCount);
 
 private:
     FireworkProperties fireworkSpec;
@@ -84,7 +84,7 @@ private:
     int shellDiameterMax = 13;
     int shellDiameterMin = 6;
 
-    int winStreak = 0;
+    int winCount = 0;
 };
 
 #endif // TESTMODEMODEL_H
