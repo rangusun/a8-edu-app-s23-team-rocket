@@ -1,3 +1,16 @@
+/**
+ *  A8: Educational-App
+ *
+ *  @brief UI wrapper containing a FireworkSandbox widget in "test" mode.
+ *
+ *  Test mode gives users "client orders" that they must fill, building a custom
+ *  rocket with the shape, color, sound, and size specified by the client. Test
+ *  mode limits the user from seeing what color/sound each material corresponds
+ *  to when building the firework.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "FireworkTestMode.h"
 #include "ui_FireworkTestMode.h"
 #include <QPainter>
