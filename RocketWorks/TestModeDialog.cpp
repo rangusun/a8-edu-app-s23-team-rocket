@@ -1,3 +1,12 @@
+/**
+ *  A8: An-Educational-App
+ *
+ *  @brief Popup dialog to inform the user they are in the test mode
+ *         and will give them orders to fullfill.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #include "TestModeDialog.h"
 #include "ui_TestModeDialog.h"
 #include <QPainter>
