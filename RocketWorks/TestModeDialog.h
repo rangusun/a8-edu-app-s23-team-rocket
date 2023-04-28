@@ -35,11 +35,29 @@ public:
     ~TestModeDialog();
 
 signals:
+    /**
+     * @brief changeToSandbox notifies the view that the user wants to switch to the sandbox level
+     */
     void changeToSandbox();
+
+    /**
+     * @brief enableButtons notifies the view that the user is done reading dialog and that simulater buttons can be enabled
+     */
     void enableButtons();
 
 public slots:
+    /**
+     * @brief displaySpecificationsDialog displays the given specifications in a user-friendly format on this dialog
+     * @param shapeSpec the shape of firework to tell the user to build
+     * @param colorSpec the color of firework to tell the user to build
+     * @param soundSpec the sound effect that the user's firework should make
+     * @param shellDiameterSpec the size of firework that the user should make
+     */
     void displaySpecificationsDialog(QString shapeSpec, QString colorSpec, QString soundSpec, int shellDiameterSpec);
+
+    /**
+     * @brief switchToSandbox receives a signal from a "Back to Sanbox" button on this dialog
+     */
     void switchToSandbox();
 
 protected:
