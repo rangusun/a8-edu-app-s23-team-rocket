@@ -10,7 +10,6 @@
 #include "WorldObject.h"
 #include "Explosion.h"
 #include <QPainter>
-#include <QDebug>
 
 
 FireworkSceneWidget::FireworkSceneWidget(QWidget *parent) :

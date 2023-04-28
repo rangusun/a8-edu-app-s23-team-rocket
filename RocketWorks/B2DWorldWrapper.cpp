@@ -7,7 +7,7 @@
  *  for CS 3505 in Spring 2023
 */
 #include "B2DWorldWrapper.h"
-#include <QDebug>
+
 
 B2DWorldWrapper::B2DWorldWrapper() : world(b2Vec2(0.0f, -28.0f)), screenWidth(100.0), screenHeight(100.0), zoom(1.0) {}
 

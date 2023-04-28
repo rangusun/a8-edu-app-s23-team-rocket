@@ -9,7 +9,6 @@
 #include "ShellPreviewWidget.h"
 #include "FireworkShapeEnum.h"
 #include <QPainter>
-#include <QDebug>
 #include <QPainterPath>
 
 ShellPreviewWidget::ShellPreviewWidget(QWidget *parent)

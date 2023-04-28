@@ -8,7 +8,6 @@
 */
 #include "FireworkSandbox.h"
 #include "ui_FireworkSandbox.h"
-#include <QDebug>
 #include <QPainter>
 
 FireworkSandbox::FireworkSandbox(QWidget *parent) :
