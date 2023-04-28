@@ -9,6 +9,7 @@ FireworkTestMode::FireworkTestMode(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Generate rocket specifications and display them for the user to see
     connect(&model,
             &TestModeModel::specificationsGenerated,
             this,
@@ -22,46 +23,57 @@ FireworkTestMode::FireworkTestMode(QWidget *parent) :
             &TestModeModel::specificationsGenerated,
             this,
             [this]() { if (!visited) ui->testModeSandbox->disableButtons(); else ui->testModeSandbox->enableButtons(); });
+    // Change to the Sandbox page when the user wants to ----------------
     connect(&testModeDialog,
             &TestModeDialog::changeToSandbox,
             this,
             &FireworkTestMode::switchToSandbox);
+    // Check the user's rocket to see if specifications for the order is correct
     connect(ui->testModeSandbox,
             &FireworkSandbox::launch,
             &model,
             &TestModeModel::checkUserSelections);
+    // Display how many orders the user correctly fulfilled--------------
     connect(&model,
             &TestModeModel::userWinOrLoss,
             this,
             &FireworkTestMode::displayOrderCorrect);
+    // Enable the sandbox button once the user completes an order -------
     connect(&model,
             &TestModeModel::userWinOrLoss,
             this,
             [this]() { ui->sandboxButton->setEnabled(true); });
-    connect(&model,
-            &TestModeModel::userWinOrLoss,
-            ui->testModeSandbox,
-            &FireworkSandbox::disableButtons);
+    // Generate new specifications when the user is taking another order-
     connect(ui->newOrderButton,
             &QPushButton::clicked,
             this,
             &FireworkTestMode::startTestMode);
+    // Switch back to the Sandbox from the win dialog -------------------
     connect(&winDialog,
             &WinDialog::backToSandbox,
             this,
             &FireworkTestMode::switchToSandbox);
+    // Display the specifications on the UI for the user to see ---------
     connect(&model,
             &TestModeModel::specificationsGenerated,
             this,
             &FireworkTestMode::listSpecifications);
+    // Update the score of how many orders the user correctly fulfilled -
     connect(&model,
             &TestModeModel::winCountChanged,
             this,
             &FireworkTestMode::updateOrdersFulfilled);
+    // Reset the score when the user goes back to the Sandbox -----------
     connect(this,
             &FireworkTestMode::changeToSandbox,
             &model,
             &TestModeModel::resetWinCount);
+    // Disable the rocket configurations when a dialog box is up --------
+    connect(&model,
+            &TestModeModel::userWinOrLoss,
+            ui->testModeSandbox,
+            &FireworkSandbox::disableButtons);
+    // Enable firework configuations when dialog boxes are closed -------
     connect(&testModeDialog,
             &TestModeDialog::enableButtons,
             ui->testModeSandbox,
@@ -70,6 +82,7 @@ FireworkTestMode::FireworkTestMode(QWidget *parent) :
             &TestModeDialog::enableButtons,
             this,
             [this]() { visited = true; });
+    // Switch back to Sandbox -------------------------------------------
     connect(ui->sandboxButton,
             &QPushButton::clicked,
             this,

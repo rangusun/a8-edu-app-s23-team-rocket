@@ -45,6 +45,7 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
     for (auto const &pair: world.getAllObjects())
     {
         const WorldObject& obj = pair.second;
+        // Draw all firework particles the color they are configured to
         if(obj.name.find("particle") != string::npos)
         {
             QColor fireWorkColor = fireworkProps.getParticleColor();
@@ -62,11 +63,11 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
                 if (!testMode)
                     emit enableButtons();
             }
-        }
+        } // Have the ground be drawn green
         else if (obj.name.find("ground") != string::npos)
         {
             painter.setPen(QColor(0, 128, 19));
-        }
+        } // Have the firework shell be drawn red
         else if (obj.name.find("shell") != string::npos)
         {
             painter.setPen(QColor(255, 61, 126));
@@ -76,7 +77,7 @@ void FireworkSceneWidget::paintEvent(QPaintEvent *)
             painter.setPen(QColor(255, 61, 126));
         }
 
-
+        // Draw the object in the list of WorldObjects
         painter.drawEllipse(QRect(obj.drawX, obj.drawY, obj.width, obj.height));
     }
 
