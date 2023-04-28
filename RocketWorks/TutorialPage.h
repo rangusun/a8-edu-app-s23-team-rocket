@@ -1,3 +1,11 @@
+/**
+ *  A8: Educational-App
+ *
+ *  @brief UI for teaching users about components of fireworks and what they do.
+ *
+ *  By Anna Madsen, Carlos Gonzalez, Carter Edginton, Rachel Nguyen, and Zander Ruiz
+ *  for CS 3505 in Spring 2023
+*/
 #ifndef TUTORIALPAGE_H
 #define TUTORIALPAGE_H
 
@@ -17,7 +25,14 @@ class TutorialPage : public QWidget
     Q_OBJECT
 
 public:
+    /**
+     * @brief - Creates a new TutorialPage
+     */
     explicit TutorialPage(QWidget *parent = nullptr);
+
+    /**
+     * @brief - Destructs a TutorialPage
+     */
     ~TutorialPage();
 
 private:
@@ -27,12 +42,22 @@ private:
 
     map<RocketComponent, bool> dialogsVisited;
 
+    /**
+     * @brief - Checks if the user has visited all the component dialogs before
+     *          allowing them to proceed to the next level.
+     */
     void CheckIfAllPagesVisited();
 
 signals:
+    /**
+     * @brief - Sends a signal to switch to a different window/page.
+     */
     void changePage();
 
 private slots:
+    /**
+     * @brief - Changes the current page to the Sandbox page.
+     */
     void switchToSandbox();
 
 };
